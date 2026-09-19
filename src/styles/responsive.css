@@ -78,9 +78,8 @@
     display: none;
   }
 
-  .site-header__cta {
-    padding: 0.35rem 0.55rem;
-    font-size: 0.75rem;
+  .site-header__contact {
+    display: none;
   }
 
   .hero__actions {
@@ -138,11 +137,6 @@
     order: 2;
   }
 
-  .site-header__contact {
-    order: 3;
-    gap: 0;
-  }
-
   .mobile-navigation {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -173,6 +167,23 @@
     background: var(--color-accent-soft);
   }
 
+  .mobile-navigation__phone {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #bfdbfe;
+    border-radius: var(--radius-md);
+    color: var(--color-accent);
+    background: var(--color-accent-soft);
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
   .shopper-hub {
     margin-top: 1.25rem;
   }
@@ -183,14 +194,25 @@
   }
 
   .shopper-hub__card {
-    min-height: 5.5rem;
+    min-height: 6.5rem;
     padding: 0.85rem;
     align-items: flex-start;
   }
 
-  .shopper-hub__subtitle,
+  .shopper-hub__subtitle {
+    display: block;
+    overflow: visible;
+    font-size: 0.72rem;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
   .shopper-hub__arrow {
     display: none;
+  }
+
+  .vehicle-spotlight__media {
+    order: -1;
   }
 
   .dealership-trust__grid {

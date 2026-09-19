@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { submitVehicleRequest } from "../services/requestService";
 import type {
   FinancingSimulationData,
@@ -104,6 +104,18 @@ export function RequestForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // El formulario desaparece tras enviarse; regresar al inicio evita que el anclaje del navegador deje el comprobante a mitad de pantalla.
+  useEffect(() => {
+    if (!isSubmitted) return;
+
+    const frameId = window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+      headingRef.current?.focus({ preventScroll: true });
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [headingRef, isSubmitted]);
 
   /** Actualiza un campo y limpia solo su error para no ocultar mensajes de otros controles. */
   function updateField<Key extends keyof VehicleRequest>(
