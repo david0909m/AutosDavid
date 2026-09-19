@@ -94,7 +94,7 @@ npx lighthouse http://localhost:4173 --view
 
 El avance detallado y los criterios de aceptación están en [docs/FASES.md](docs/FASES.md).
 
-La publicación del repositorio y de la aplicación en línea se realizará en la etapa final. Cuando esté disponible, añadiré aquí los enlaces.
+El código está disponible en [GitHub](https://github.com/david0909m/AutosDavid) y la aplicación publicada puede verse en [AutosDavid en GitHub Pages](https://david0909m.github.io/AutosDavid/).
 
 ## Mejoras futuras
 
