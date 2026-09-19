@@ -82,7 +82,7 @@ La arquitectura mantiene las vistas dentro de la SPA y controla la pantalla actu
 
 ## Rendimiento
 
-Para revisar la carga de la aplicación utilicé Lighthouse. En la última medición local obtuve 78 en rendimiento, 95 en accesibilidad, 100 en buenas prácticas y 92 en SEO. La revisión ayudó a identificar que las imágenes eran el principal punto de mejora, por lo que se prepararon versiones optimizadas para el catálogo.
+Para revisar la carga de la aplicación utilicé Lighthouse. En la última medición local obtuve 77 en rendimiento, 95 en accesibilidad, 100 en buenas prácticas y 92 en SEO. La revisión ayudó a identificar que las imágenes eran el principal punto de mejora, por lo que se prepararon versiones optimizadas para el catálogo.
 
 La medición se puede repetir con este comando:
 
@@ -90,9 +90,7 @@ La medición se puede repetir con este comando:
 npx lighthouse http://localhost:4173 --view
 ```
 
-## Próximos pasos
-
-El avance detallado y los criterios de aceptación están en [docs/FASES.md](docs/FASES.md).
+## Pagina web
 
 El código está disponible en [GitHub](https://github.com/david0909m/AutosDavid) y la aplicación publicada puede verse en [AutosDavid en GitHub Pages](https://david0909m.github.io/AutosDavid/).
 
