@@ -324,6 +324,28 @@
 }
 
 @media (max-width: 48rem) {
+  .dealer-hero__visual,
+  .dealer-hero__info {
+    min-width: 0;
+  }
+
+  .dealer-transmission-picker {
+    padding: 1rem;
+  }
+
+  .dealer-transmission-picker__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .transmission-current-label {
+    text-align: left;
+  }
+
+  .dealer-transmission-toggle {
+    grid-template-columns: 1fr;
+  }
+
   /* Showcase Tesla en Móvil */
   .dealer-showcase-row {
     display: flex;
@@ -415,6 +437,8 @@
   .dealer-btn-primary,
   .dealer-btn-secondary {
     width: 100%;
+    flex: 0 0 auto;
+    min-height: 3.25rem;
   }
 
   .dealer-calc-controls {
