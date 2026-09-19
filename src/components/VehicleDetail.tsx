@@ -98,10 +98,9 @@ export function VehicleDetail({
   ];
   const colors = vehicle.colors && vehicle.colors.length > 0 ? vehicle.colors : defaultColors;
   const [activeColorIndex, setActiveColorIndex] = useState(0);
-  const isHiluxColorPreview = vehicle.id === "toyota-hilux-2024";
-  const galleryColorStyle = isHiluxColorPreview
-    ? ({ "--vehicle-ambient-color": colors[activeColorIndex]?.hex } as CSSProperties)
-    : undefined;
+  const galleryColorStyle = {
+    "--vehicle-ambient-color": colors[activeColorIndex]?.hex,
+  } as CSSProperties;
 
   // Estado para la calculadora interactiva de financiamiento
   const [downPaymentPercent, setDownPaymentPercent] = useState<number>(
@@ -249,9 +248,7 @@ export function VehicleDetail({
           {/* Columna Izquierda: Galería Multitoma y Selector de Colores */}
           <div className="dealer-hero__visual">
             <div
-              className={`dealer-gallery__stage${
-                isHiluxColorPreview ? " dealer-gallery__stage--color-ambience" : ""
-              }`}
+              className="dealer-gallery__stage dealer-gallery__stage--color-ambience"
               style={galleryColorStyle}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}

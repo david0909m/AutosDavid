@@ -109,7 +109,7 @@
   touch-action: pan-y;
 }
 
-/* Prueba visual limitada a Hilux: el color elegido ilumina el marco sin alterar la fotografía. */
+/* El color elegido ilumina el marco sin alterar la fotografía del vehículo. */
 .dealer-gallery__stage--color-ambience {
   box-shadow:
     0 4px 14px rgba(0, 0, 0, 0.12),
