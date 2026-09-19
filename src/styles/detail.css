@@ -1493,6 +1493,7 @@
 }
 
 .dealer-spec-group {
+  min-width: 0;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -1513,6 +1514,7 @@
 .dealer-spec-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .dealer-spec-table th,
@@ -1521,6 +1523,8 @@
   font-size: 0.88rem;
   border-bottom: 1px solid #f1f5f9;
   text-align: left;
+  overflow-wrap: anywhere;
+  vertical-align: top;
 }
 
 .dealer-spec-table tr:last-child th,

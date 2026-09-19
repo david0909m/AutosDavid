@@ -706,9 +706,6 @@ function App() {
             <button type="button" onClick={() => navigateToCatalogSection("vehicle-spotlight-section")}>
               Oferta destacada
             </button>
-            <button type="button" onClick={openFeaturedFinancing}>
-              Financiamiento
-            </button>
             <button type="button" onClick={() => navigateToCatalogSection("trust-section")}>
               Garantía
             </button>
