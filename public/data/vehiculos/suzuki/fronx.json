@@ -10,12 +10,12 @@
   "transmission": "Automática",
   "fuel": "Híbrido",
   "description": "SUV coupé con diseño atlético, tecnología microhíbrida eficiente y excelente despeje sobre el asfalto.",
-  "image": "./images/vehiculos/suzuki-fronx-2024/suzuki-fronx-2024-1.jpg",
+  "image": "./images/vehiculos/suzuki-fronx-2024/suzuki-fronx-2024-1.jpeg",
   "imageAlt": "Suzuki Fronx cobrizo vista exterior",
   "gallery": [
-    "./images/vehiculos/suzuki-fronx-2024/suzuki-fronx-2024-1.jpg",
+    "./images/vehiculos/suzuki-fronx-2024/suzuki-fronx-2024-1.jpeg",
     "./images/vehiculos/suzuki-fronx-2024/suzuki-fronx-2024-2.jpg",
-    "./images/vehiculos/suzuki-fronx-2024/suzuki-fronx-2024-3.jpg",
+    "./images/vehiculos/suzuki-fronx-2024/suzuki-fronx-2024-3.png",
     "./images/vehiculos/suzuki-fronx-2024/suzuki-fronx-2024-4.jpg",
     "./images/vehiculos/suzuki-fronx-2024/suzuki-fronx-2024-5.jpg"
   ],
