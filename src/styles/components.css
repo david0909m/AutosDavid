@@ -1,0 +1,1096 @@
+/* ==========================================================================
+   Site Header
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-rule);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.site-header__inner {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: var(--space-3xs) var(--space-2xs);
+  margin-left: calc(-1 * var(--space-2xs));
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.site-logo:hover {
+  opacity: 0.92;
+  transform: scale(1.02);
+}
+
+.site-logo__img {
+  height: 3.3rem;
+  width: auto;
+  max-height: 54px;
+  object-fit: contain;
+  display: block;
+}
+
+.site-logo__brand {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.site-logo__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+  line-height: 1.1;
+}
+
+.site-logo__tagline {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mobile-menu-toggle,
+.mobile-navigation {
+  display: none;
+}
+
+.mobile-menu-toggle {
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-md);
+  color: var(--color-ink);
+  background: var(--color-surface);
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.mobile-menu-toggle:hover {
+  background: var(--color-paper-2);
+  border-color: #bfdbfe;
+  transform: translateY(-1px);
+}
+
+.mobile-menu-toggle:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.site-nav-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0.35rem 0.25rem;
+  cursor: pointer;
+  position: relative;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.site-nav-link:hover {
+  color: var(--color-accent);
+}
+
+.site-nav-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.site-header__contact {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.site-header__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.site-header__location svg {
+  color: var(--color-accent);
+}
+
+.site-header__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  border: 1px solid #bfdbfe;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.site-header__cta:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Hero Section (Showroom Concesionario)
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-color: #070d18;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: clamp(480px, 56vh, 560px);
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: clamp(560px, 60vw, 1020px);
+  background-image: url("/images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-optimized.jpg");
+  background-size: cover;
+  background-position: center 46%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.18) 14%,
+    rgba(0, 0, 0, 0.75) 34%,
+    black 60%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.18) 14%,
+    rgba(0, 0, 0, 0.75) 34%,
+    black 60%
+  );
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    display: block;
+  }
+
+  .hero::before {
+    width: 100%;
+    opacity: 0.48;
+    background-position: 62% 32%;
+    -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.25) 100%);
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.25) 100%);
+  }
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 75% 50%, rgba(29, 78, 216, 0.22) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(7, 13, 24, 0.4) 0%, transparent 30%, transparent 65%, #070d18 100%),
+    linear-gradient(90deg, #070d18 0%, #070d18 36%, rgba(7, 13, 24, 0.85) 54%, transparent 75%);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .hero__overlay {
+    background:
+      linear-gradient(90deg, rgba(7, 13, 24, 0.86) 0%, rgba(7, 13, 24, 0.66) 58%, rgba(7, 13, 24, 0.38) 100%),
+      linear-gradient(180deg, rgba(7, 13, 24, 0.28) 0%, rgba(7, 13, 24, 0.9) 100%);
+  }
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  padding-block: clamp(4rem, 7vw, 6rem) clamp(3rem, 5vw, 4.5rem);
+}
+
+.hero h1 {
+  max-width: 22ch;
+  color: #ffffff;
+  font-size: clamp(2.25rem, 4.8vw, 3.65rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  margin-bottom: 1.15rem;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+}
+
+.hero__description {
+  max-width: 54ch;
+  color: #94a3b8;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.65;
+  margin-bottom: 2.25rem;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.85rem;
+  border-radius: 8px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.hero__btn--primary {
+  background: var(--color-accent);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.38), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hero__btn--primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(29, 78, 216, 0.5), 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.hero__btn--secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero__btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================================================
+   Status & Feedback States
+   ========================================================================== */
+
+.status {
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  text-align: center;
+}
+
+.status--loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  color: var(--color-ink-muted);
+}
+
+.loading-spinner {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 3px solid var(--color-rule);
+  border-top-color: var(--color-accent);
+  border-radius: var(--radius-pill);
+  animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.status--error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  text-align: left;
+  background: var(--color-error-bg);
+  border-color: var(--color-error-border);
+  color: var(--color-ink);
+}
+
+.status__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.status__body h3 {
+  color: var(--color-error);
+  margin-bottom: 0.35rem;
+}
+
+.status__body p {
+  color: var(--color-ink-muted);
+  margin-bottom: var(--space-md);
+}
+
+.status--empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.status--empty__icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.status--empty h3 {
+  font-size: 1.45rem;
+  color: var(--color-ink);
+}
+
+.status--empty p {
+  color: var(--color-ink-muted);
+  margin-bottom: var(--space-md);
+  max-width: 45ch;
+}
+
+/* ==========================================================================
+   Shopper Hub (4 Quick Action Pillars)
+   ========================================================================== */
+
+.shopper-hub {
+  position: relative;
+  z-index: 10;
+  margin-top: 1.5rem;
+  margin-bottom: 2.25rem;
+}
+
+.shopper-hub__inner {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.shopper-hub__card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.shopper-hub__card:hover {
+  transform: translateY(-2px);
+  border-color: #93c5fd;
+  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.09), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.shopper-hub__card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.shopper-hub__icon-wrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9px;
+  background: #f1f5f9;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.shopper-hub__card:hover .shopper-hub__icon-wrapper {
+  background: #eff6ff;
+  color: var(--color-accent);
+}
+
+.shopper-hub__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.shopper-hub__title {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.shopper-hub__subtitle {
+  font-size: 0.77rem;
+  color: var(--color-ink-muted);
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shopper-hub__arrow {
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.shopper-hub__card:hover .shopper-hub__arrow {
+  color: var(--color-accent);
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   Vehicle Spotlight (Campaign Billboard Inspired by Chevrolet.com)
+   ========================================================================== */
+
+.vehicle-spotlight {
+  position: relative;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+  padding-block: clamp(2.75rem, 5vw, 4rem);
+  margin-bottom: 2.5rem;
+}
+
+.vehicle-spotlight__container {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+
+.vehicle-spotlight__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+  line-height: 1.15;
+  margin-bottom: 0.65rem;
+}
+
+.vehicle-spotlight__slogan {
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+  color: var(--color-ink-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 54ch;
+}
+
+.vehicle-spotlight__financing-card {
+  background: #ffffff;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 1.5rem;
+}
+
+.vehicle-spotlight__financial-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.vehicle-spotlight__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.vehicle-spotlight__divider {
+  width: 1px;
+  height: 3.5rem;
+  background: var(--color-rule);
+}
+
+.financial-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-muted);
+}
+
+.financial-value {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.financial-value--accent {
+  color: var(--color-accent);
+}
+
+.financial-period {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.financial-sub {
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+  font-weight: 500;
+}
+
+.vehicle-spotlight__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.75rem;
+}
+
+.spotlight-spec {
+  display: flex;
+  flex-direction: column;
+  padding: 0.45rem 0.85rem;
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-md);
+}
+
+.spotlight-spec__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted);
+}
+
+.spotlight-spec__value {
+  font-size: 0.88rem;
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.vehicle-spotlight__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.spotlight-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.9rem;
+  padding: 0.65rem 1.45rem;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+
+.spotlight-btn--primary {
+  background: var(--color-accent);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25);
+}
+
+.spotlight-btn--primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.35);
+}
+
+.spotlight-btn--secondary {
+  background: #ffffff;
+  color: var(--color-ink);
+  border: 1px solid var(--color-rule);
+}
+
+.spotlight-btn--secondary:hover {
+  background: var(--color-paper-2);
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+.vehicle-spotlight__disclaimer {
+  font-size: 0.74rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.vehicle-spotlight__media {
+  position: relative;
+}
+
+.vehicle-spotlight__image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: #0f172a;
+  box-shadow: 0 12px 36px -6px rgba(15, 23, 42, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vehicle-spotlight__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.vehicle-spotlight__image-frame:hover .vehicle-spotlight__image {
+  transform: scale(1.03);
+}
+
+.vehicle-spotlight__badge-category {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Dealership Trust & Certification (150 Points & Bank Partnerships)
+   ========================================================================== */
+
+.dealership-trust {
+  background: #070d18;
+  color: #ffffff;
+  padding-block: clamp(3.5rem, 6.5vw, 5.5rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dealership-trust__inner {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+}
+
+.dealership-trust__header {
+  text-align: center;
+  max-width: 48rem;
+  margin-inline: auto;
+  margin-bottom: 3.25rem;
+}
+
+
+.dealership-trust__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  line-height: 1.18;
+  margin-bottom: 1rem;
+}
+
+.dealership-trust__subtitle {
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.dealership-trust__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.trust-card {
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.trust-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.trust-card__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+  background: rgba(29, 78, 216, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #93c5fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.trust-card__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+  line-height: 1.25;
+}
+
+.trust-card__text {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.dealership-trust__banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  padding: clamp(2rem, 3.5vw, 2.75rem);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.15) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.3);
+}
+
+.dealership-trust__banner-content {
+  max-width: 36rem;
+}
+
+.dealership-trust__banner-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+
+.dealership-trust__banner-desc {
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.dealership-trust__banner-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.trust-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.45rem;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+
+.trust-cta-btn--primary {
+  background: var(--color-accent);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.35);
+}
+
+.trust-cta-btn--primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.45);
+}
+
+
+/* ==========================================================================
+   Site Footer (Chevrolet Ft3 Index 4-Column Structure)
+   ========================================================================== */
+
+.site-footer {
+  margin-top: auto;
+  background: #060a12;
+  color: #94a3b8;
+  border-top: 1px solid #162032;
+  padding-top: clamp(3rem, 5vw, 4.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.site-footer__grid {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: clamp(1.5rem, 3.5vw, 3rem);
+  margin-bottom: 3rem;
+}
+
+.site-footer__brand-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.site-footer__logo-wrap {
+  background: #ffffff;
+  padding: 0.25rem 0.45rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.site-footer__logo-img {
+  height: 2.2rem;
+  width: auto;
+  max-height: 38px;
+  object-fit: contain;
+  display: block;
+}
+
+.site-footer__brand-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.site-footer__about {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin-bottom: 1.25rem;
+  max-width: 24rem;
+}
+
+
+.site-footer__col-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.site-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.site-footer__list a,
+.site-footer__list button {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.site-footer__list a:hover,
+.site-footer__list button:hover {
+  color: #ffffff;
+}
+
+.site-footer__contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: #94a3b8;
+}
+
+.site-footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.site-footer__contact-item svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.site-footer__bottom {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  border-top: 1px solid #162032;
+  padding-top: 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-footer__disclaimer {
+  font-size: 0.76rem;
+  color: #64748b;
+  max-width: 48rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.site-footer__legal {
+  font-size: 0.76rem;
+  color: #64748b;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Scroll-Driven Reveal Animations (Smooth Micro-interactions)
+   ========================================================================== */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Escalonamiento sutil (Stagger) */
+.reveal-stagger-1 { transition-delay: 50ms; }
+.reveal-stagger-2 { transition-delay: 110ms; }
+.reveal-stagger-3 { transition-delay: 170ms; }
+.reveal-stagger-4 { transition-delay: 230ms; }
+.reveal-stagger-5 { transition-delay: 290ms; }
+.reveal-stagger-6 { transition-delay: 350ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .mobile-navigation {
+    animation: none !important;
+  }
+}

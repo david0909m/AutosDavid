@@ -1,0 +1,254 @@
+{
+  "id": "toyota-yaris-2024",
+  "brand": "Toyota",
+  "model": "Yaris",
+  "year": 2024,
+  "price": 20500,
+  "priceNIO": 752350,
+  "currency": "USD",
+  "category": "Hatchback",
+  "transmission": "Automática",
+  "fuel": "Híbrido",
+  "description": "Hatchback urbano ágil de alta eficiencia con tecnología híbrida autorrecargable y gran equipamiento de seguridad.",
+  "image": "./images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-optimized.jpg",
+  "imageAlt": "Toyota Yaris azul vista dinámica",
+  "gallery": [
+    "./images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-optimized.jpg",
+    "./images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-2.jpg",
+    "./images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-3.jpg",
+    "./images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-4.jpg",
+    "./images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-5.jpg"
+  ],
+  "slogan": "Yaris sedán conquistará la ciudad",
+  "metrics": [
+    {
+      "label": "Motor",
+      "value": "1.5L 4 Cilindros DOHC"
+    },
+    {
+      "label": "Potencia",
+      "value": "105 HP @ 6,000 rpm"
+    },
+    {
+      "label": "Transmisión",
+      "value": "CVT / Manual 5 Vel"
+    },
+    {
+      "label": "Tanque",
+      "value": "40 Litros"
+    },
+    {
+      "label": "Pasajeros",
+      "value": "5 Pasajeros"
+    }
+  ],
+  "colors": [
+    {
+      "name": "Rojo Mica",
+      "hex": "#9b1717"
+    },
+    {
+      "name": "Gris Urbano",
+      "hex": "#2b3a4a"
+    },
+    {
+      "name": "Negro Mica",
+      "hex": "#111111"
+    },
+    {
+      "name": "Blanco Perla Platino",
+      "hex": "#f3f6f9"
+    },
+    {
+      "name": "Super Blanco",
+      "hex": "#ffffff"
+    },
+    {
+      "name": "Plata Metálico",
+      "hex": "#c4c8cb"
+    }
+  ],
+  "features": [
+    {
+      "id": "design",
+      "category": "Diseño Exterior",
+      "title": "Un exterior restaurado",
+      "subtitle": "Bumper delantero de perfil bajo y ópticas dinámicas.",
+      "description": "El nuevo Toyota Yaris Sedán se renovó completamente; cuenta con un bumper delantero de perfil bajo donde se alojan en la parte superior las lámparas LED, luces pide vía y las luces de posición diurnas (DRL).",
+      "highlights": [
+        "Faros LED multirreflectores con encendido automático",
+        "Parrilla deportiva en acabado negro brillante",
+        "Rines de aleación de 15 pulgadas con diseño radial"
+      ]
+    },
+    {
+      "id": "interior",
+      "category": "Confort Interior",
+      "title": "Moderno interior",
+      "subtitle": "Ambiente premium que es tan cómodo como atractivo.",
+      "description": "El interior rediseñado de Yaris ofrece acabados de tacto suave, amplio espacio para cinco ocupantes y asientos traseros abatibles 60:40 para llevar amigos o equipaje sin limitaciones.",
+      "highlights": [
+        "Asientos ergonómicos con soporte lateral",
+        "Asientos traseros abatibles 60:40",
+        "Volante regulable en altura con mandos multimedia"
+      ]
+    },
+    {
+      "id": "technology",
+      "category": "Tecnología y Conectividad",
+      "title": "Pantalla Táctil y Mandos al Timón",
+      "subtitle": "Centro de infoentretenimiento de 8” con Apple CarPlay® y Android Auto™.",
+      "description": "Disfruta de todo tu entretenimiento a gran escala sin perder la atención del camino gracias a sus controles de audio en el timón, conectividad Bluetooth, puerto USB de alta velocidad y 4 parlantes de alta fidelidad.",
+      "highlights": [
+        "Pantalla táctil de 8 pulgadas HD",
+        "Apple CarPlay® y Android Auto™ integrados",
+        "Controles de llamadas y audio desde el timón"
+      ]
+    },
+    {
+      "id": "safety",
+      "category": "Seguridad Integral",
+      "title": "Seguridad Activa y Pasiva Avanzada",
+      "subtitle": "Star Safety System de Toyota con HAC y carrocería absorbente.",
+      "description": "El Yaris Sedán incorpora sistema HAC (asistente de arranque en pendientes), frenos anti-bloqueo ABS, distribución electrónica EBD, asistencia de frenado BA, control de estabilidad VSC y doble bolsa de aire delantera SRS.",
+      "highlights": [
+        "Asistente de arranque en pendientes (HAC)",
+        "Control de estabilidad vehicular (VSC)",
+        "Frenos ABS + EBD + Asistente BA"
+      ]
+    }
+  ],
+  "specifications": [
+    {
+      "category": "Motor y Rendimiento",
+      "items": [
+        {
+          "label": "Cilindrada",
+          "value": "1,496 cc (2NR-VE)"
+        },
+        {
+          "label": "Configuración",
+          "value": "4 cilindros en línea, 16 válvulas DOHC Dual VVT-i"
+        },
+        {
+          "label": "Potencia Máxima",
+          "value": "105 HP a 6,000 RPM"
+        },
+        {
+          "label": "Torque Máximo",
+          "value": "138 Nm a 4,200 RPM"
+        },
+        {
+          "label": "Alimentación",
+          "value": "Inyección electrónica multipunto secuencial"
+        },
+        {
+          "label": "Capacidad de Tanque",
+          "value": "40 Litros (10.6 Galones)"
+        }
+      ]
+    },
+    {
+      "category": "Transmisión y Chasis",
+      "items": [
+        {
+          "label": "Tracción",
+          "value": "Delantera (FWD)"
+        },
+        {
+          "label": "Transmisión",
+          "value": "Automática CVT de 7 marchas simuladas / Manual 5 velocidades"
+        },
+        {
+          "label": "Frenos Delanteros",
+          "value": "Discos ventilados de 14 pulgadas"
+        },
+        {
+          "label": "Frenos Traseros",
+          "value": "Tambor con zapatas autocentrantes"
+        },
+        {
+          "label": "Suspensión Delantera",
+          "value": "Independiente tipo MacPherson con barra estabilizadora"
+        },
+        {
+          "label": "Suspensión Trasera",
+          "value": "Eje de torsión con resortes helicoidales"
+        }
+      ]
+    },
+    {
+      "category": "Dimensiones y Capacidades",
+      "items": [
+        {
+          "label": "Largo x Ancho x Alto",
+          "value": "4,425 mm x 1,740 mm x 1,480 mm"
+        },
+        {
+          "label": "Distancia entre ejes",
+          "value": "2,620 mm"
+        },
+        {
+          "label": "Capacidad de Maletero",
+          "value": "475 Litros"
+        },
+        {
+          "label": "Capacidad de Ocupantes",
+          "value": "5 Pasajeros"
+        },
+        {
+          "label": "Radio de Giro Mínimo",
+          "value": "5.1 metros"
+        }
+      ]
+    },
+    {
+      "category": "Seguridad",
+      "items": [
+        {
+          "label": "Bolsas de Aire",
+          "value": "Doble Airbag frontal SRS"
+        },
+        {
+          "label": "Frenos Asistidos",
+          "value": "ABS con EBD y Asistencia de frenado de pánico BA"
+        },
+        {
+          "label": "Control Dinámico",
+          "value": "Control de Estabilidad (VSC) y Tracción (TRC)"
+        },
+        {
+          "label": "Pendientes",
+          "value": "HAC (Asistente de Arranque en Pendientes)"
+        },
+        {
+          "label": "Cinturones",
+          "value": "De 3 puntos con pretensores en todas las plazas"
+        }
+      ]
+    }
+  ],
+  "financing": {
+    "minDownPaymentPercent": 20,
+    "defaultTermMonths": 48,
+    "maxTermMonths": 72,
+    "interestRateAnnual": 8.75
+  },
+  "transmissions": [
+    {
+      "type": "Manual",
+      "label": "Manual de 5 velocidades de cambios cortos y precisos",
+      "shortLabel": "Mecánico (5 Vel)",
+      "priceUSD": 19200,
+      "priceNIO": 704640
+    },
+    {
+      "type": "Automática",
+      "label": "Automática CVT Secuencial de 7 velocidades con paletas",
+      "shortLabel": "Automático (CVT 7 Vel)",
+      "priceUSD": 20500,
+      "priceNIO": 752350,
+      "isDefault": true
+    }
+  ]
+}

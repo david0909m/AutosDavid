@@ -1,0 +1,254 @@
+{
+  "id": "toyota-corolla-2024",
+  "brand": "Toyota",
+  "model": "Corolla",
+  "year": 2024,
+  "price": 26200,
+  "priceNIO": 961540,
+  "currency": "USD",
+  "category": "Sedán",
+  "transmission": "Automática",
+  "fuel": "Híbrido",
+  "description": "El sedán más vendido del mundo con sistema híbrido de quinta generación, gran eficiencia y confort superior.",
+  "image": "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-optimized.jpg",
+  "imageAlt": "Toyota Corolla plateado vista dinámica",
+  "gallery": [
+    "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-optimized.jpg",
+    "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-2.jpg",
+    "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-3.jpg",
+    "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-4.jpg",
+    "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-5.jpg"
+  ],
+  "slogan": "El sedán más vendido del mundo con quinta generación híbrida",
+  "metrics": [
+    {
+      "label": "Motor",
+      "value": "1.8L Híbrido 4 Cil"
+    },
+    {
+      "label": "Potencia",
+      "value": "138 HP Combinada"
+    },
+    {
+      "label": "Transmisión",
+      "value": "e-CVT Automática"
+    },
+    {
+      "label": "Tanque",
+      "value": "43 Litros"
+    },
+    {
+      "label": "Pasajeros",
+      "value": "5 Ocupantes"
+    }
+  ],
+  "colors": [
+    {
+      "name": "Plata Celestita",
+      "hex": "#abb5be"
+    },
+    {
+      "name": "Blanco Aperlado",
+      "hex": "#f4f6f9"
+    },
+    {
+      "name": "Gris Grafito",
+      "hex": "#484f56"
+    },
+    {
+      "name": "Negro Eclipse",
+      "hex": "#111315"
+    },
+    {
+      "name": "Rojo Carmesí",
+      "hex": "#941a1a"
+    },
+    {
+      "name": "Azul Cósmico",
+      "hex": "#1b3252"
+    }
+  ],
+  "features": [
+    {
+      "id": "design",
+      "category": "Diseño Exterior",
+      "title": "Elegancia Atlética y Aerodinámica",
+      "subtitle": "Líneas fluidas con centro de gravedad bajo basadas en la plataforma TNGA.",
+      "description": "La arquitectura TNGA otorga al Corolla una presencia plantada y deportiva. Su parrilla frontal trapezoidal con acentos en cromo satinado y sus estilizadas ópticas Bi-LED proyectan sofisticación y eficiencia en cada trayecto.",
+      "highlights": [
+        "Faros Bi-LED con encendido automático",
+        "Rines de aleación bitono de 17 pulgadas",
+        "Espejos laterales electrocrómicos con luz de giro"
+      ]
+    },
+    {
+      "id": "interior",
+      "category": "Confort Interior",
+      "title": "Habitáculo Ergonómico y Silencioso",
+      "subtitle": "Materiales de tacto suave y máxima insonorización acústica.",
+      "description": "El habitáculo fue diseñado para reducir el cansancio en viajes largos. Los asientos envolventes ofrecen excelente soporte lumbar, mientras que el climatizador automático bizona mantiene la temperatura ideal de forma independiente.",
+      "highlights": [
+        "Climatizador automático bizona",
+        "Asiento de conductor con ajuste eléctrico",
+        "Insonorización de cabina de alta frecuencia"
+      ]
+    },
+    {
+      "id": "technology",
+      "category": "Tecnología y Conectividad",
+      "title": "Conectividad Inteligente sin Cables",
+      "subtitle": "Pantalla multimedia flotante de 10.5” con Apple CarPlay® y Android Auto™.",
+      "description": "Todo el control multimedia se centraliza en su pantalla táctil de alta definición con asistente por comandos de voz, clúster digital configurable de 12.3 pulgadas y cargador inalámbrico para teléfonos compatibles.",
+      "highlights": [
+        "Pantalla táctil HD de 10.5 pulgadas",
+        "Cuadro de instrumentos digital de 12.3\"",
+        "Cargador de inducción inalámbrico Qi"
+      ]
+    },
+    {
+      "id": "safety",
+      "category": "Seguridad Integral",
+      "title": "Toyota Safety Sense 3.0 de Serie",
+      "subtitle": "Suite avanzada de asistencias activas para proteger a tu familia.",
+      "description": "Incluye sistema de precolisión frontal con detección de ciclistas y peatones, alerta de cambio de carril con asistencia de dirección, control crucero adaptativo por radar dinámico y 7 bolsas de aire SRS.",
+      "highlights": [
+        "Sistema de Pre-Colisión con frenado autónomo",
+        "Control Crucero Adaptativo dinámico (DRCC)",
+        "7 bolsas de aire SRS (incluye rodilla de conductor)"
+      ]
+    }
+  ],
+  "specifications": [
+    {
+      "category": "Motor y Rendimiento",
+      "items": [
+        {
+          "label": "Motorización",
+          "value": "1.8L 4 Cilindros en línea + Motor eléctrico síncrono"
+        },
+        {
+          "label": "Potencia Combinada",
+          "value": "138 HP @ 5,200 rpm"
+        },
+        {
+          "label": "Torque Motor Térmico",
+          "value": "142 Nm @ 3,600 rpm"
+        },
+        {
+          "label": "Batería Híbrida",
+          "value": "Ion de Litio autorrecargable de alta densidad"
+        },
+        {
+          "label": "Consumo Mixto Estimado",
+          "value": "Hasta 24 km/litro en ciclo combinado"
+        },
+        {
+          "label": "Capacidad de Tanque",
+          "value": "43 Litros (11.4 Galones)"
+        }
+      ]
+    },
+    {
+      "category": "Transmisión y Chasis",
+      "items": [
+        {
+          "label": "Transmisión",
+          "value": "Automática e-CVT con engranaje planetario"
+        },
+        {
+          "label": "Tracción",
+          "value": "Delantera FWD"
+        },
+        {
+          "label": "Suspensión Delantera",
+          "value": "Independiente MacPherson con barra estabilizadora"
+        },
+        {
+          "label": "Suspensión Trasera",
+          "value": "Independiente de doble horquilla (Double Wishbone)"
+        },
+        {
+          "label": "Frenos",
+          "value": "Discos ventilados delanteros y sólidos traseros con regeneración"
+        },
+        {
+          "label": "Dirección",
+          "value": "Asistida eléctricamente (EPS) progresiva"
+        }
+      ]
+    },
+    {
+      "category": "Dimensiones y Capacidades",
+      "items": [
+        {
+          "label": "Largo x Ancho x Alto",
+          "value": "4,630 mm x 1,780 mm x 1,435 mm"
+        },
+        {
+          "label": "Distancia entre ejes",
+          "value": "2,700 mm"
+        },
+        {
+          "label": "Capacidad de Cajuela",
+          "value": "471 Litros"
+        },
+        {
+          "label": "Plazas",
+          "value": "5 Pasajeros"
+        },
+        {
+          "label": "Peso en Orden de Marcha",
+          "value": "1,410 kg"
+        }
+      ]
+    },
+    {
+      "category": "Seguridad y Asistencias",
+      "items": [
+        {
+          "label": "Bolsas de Aire",
+          "value": "7 Airbags SRS (frontales, laterales, cortina y rodilla)"
+        },
+        {
+          "label": "Frenado Activo",
+          "value": "ABS + EBD + Asistente de frenado de emergencia (BA)"
+        },
+        {
+          "label": "Control Dinámico",
+          "value": "Control de Estabilidad (VSC) y Tracción (TRC)"
+        },
+        {
+          "label": "Asistencia en Pendientes",
+          "value": "HAC (Hill-start Assist Control)"
+        },
+        {
+          "label": "Anclajes Infantiles",
+          "value": "ISOFIX con puntos superiores Top Tether"
+        }
+      ]
+    }
+  ],
+  "financing": {
+    "minDownPaymentPercent": 20,
+    "defaultTermMonths": 48,
+    "maxTermMonths": 72,
+    "interestRateAnnual": 8.5
+  },
+  "transmissions": [
+    {
+      "type": "Manual",
+      "label": "Manual de 6 velocidades con sincronización de revoluciones",
+      "shortLabel": "Mecánico (6 Vel)",
+      "priceUSD": 24500,
+      "priceNIO": 899150
+    },
+    {
+      "type": "Automática",
+      "label": "Automática Direct Shift-CVT con modo secuencial de 10 vel",
+      "shortLabel": "Automático (CVT 10 Vel)",
+      "priceUSD": 26200,
+      "priceNIO": 961540,
+      "isDefault": true
+    }
+  ]
+}

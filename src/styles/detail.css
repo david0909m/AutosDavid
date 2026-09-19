@@ -1,0 +1,2863 @@
+/* ==========================================================================
+   Dealer Product Sheet View (Toyota Nicaragua Inspired DNA)
+   ========================================================================== */
+
+.dealer-detail-page {
+  padding-bottom: 6rem;
+  background-color: var(--color-paper-subtle, #f8fafc);
+  color: #111827;
+}
+
+/* 1. Top Bar & Breadcrumbs */
+.dealer-top-nav {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding-block: 0.85rem;
+}
+
+.dealer-top-nav__inner {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.detail-nav {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.dealer-back-btn,
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.dealer-back-btn:hover,
+.back-button:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.dealer-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  color: #64748b;
+}
+
+.dealer-breadcrumbs .sep {
+  color: #cbd5e1;
+}
+
+.dealer-breadcrumbs .current {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* 2. Hero Section */
+.dealer-hero {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+}
+
+.dealer-hero__container {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+/* Hero Visual: Galería y Selector de Colores */
+.dealer-hero__visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dealer-gallery__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #0f172a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+.dealer-gallery__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  cursor: zoom-in;
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.dealer-gallery__image.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.dealer-gallery__image:hover {
+  transform: scale(1.02);
+}
+
+.dealer-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  z-index: 4;
+  pointer-events: none;
+  user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Botón de Pantalla Completa / Expandir */
+.dealer-gallery__top-actions {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 4;
+}
+
+.dealer-gallery__expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.dealer-gallery__expand-btn:hover {
+  background: #1d4ed8;
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: scale(1.04);
+}
+
+/* Flechas Flotantes de Navegación */
+.dealer-gallery__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  opacity: 0.88;
+  transition: opacity 0.15s ease, background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dealer-gallery__arrow:hover {
+  opacity: 1;
+  background: #1d4ed8;
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.5);
+}
+
+.dealer-gallery__arrow--prev {
+  left: 0.85rem;
+}
+
+.dealer-gallery__arrow--next {
+  right: 0.85rem;
+}
+
+/* Barra inferior de metadatos */
+.dealer-gallery__meta-bar {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 0.85rem;
+  right: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.dealer-gallery__perspective {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #f1f5f9;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.dealer-gallery__counter {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.dealer-gallery__thumbs {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 6px 4px 8px;
+  margin-top: -4px;
+  margin-inline: -4px;
+  user-select: none;
+  -webkit-user-select: none;
+  scrollbar-width: thin;
+}
+
+.dealer-thumb {
+  flex: 0 0 6.2rem;
+  height: 4.2rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+  background: #0f172a;
+  opacity: 0.65;
+  transition: border-color 0.15s ease, opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.dealer-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.dealer-thumb:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+.dealer-thumb.is-active {
+  opacity: 1;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  position: relative;
+  z-index: 2;
+}
+
+/* Selector de Colores */
+.dealer-color-picker {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.dealer-color-picker__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.color-label {
+  color: #64748b;
+}
+
+.color-name-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.color-chip-preview {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.color-name {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.dealer-color-picker__swatches {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.dealer-color-swatch {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 1px #cbd5e1;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+}
+
+.dealer-color-swatch:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 0 2px #94a3b8;
+}
+
+.dealer-color-swatch.is-active {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #1d4ed8;
+}
+
+.dealer-color-disclaimer {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+/* Lightbox Modal / Visor de Fotos en Alta Resolución */
+.dealer-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.dealer-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 15, 29, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dealer-lightbox__content {
+  position: relative;
+  z-index: 2;
+  width: min(94vw, 76rem);
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.dealer-lightbox__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 0.5rem;
+  color: #ffffff;
+}
+
+.dealer-lightbox__title-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.dealer-lightbox__car-title {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.dealer-lightbox__angle-label {
+  font-size: 0.78rem;
+  color: #93c5fd;
+  background: rgba(29, 78, 216, 0.28);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.dealer-lightbox__controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dealer-lightbox__counter {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.dealer-lightbox__close-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.dealer-lightbox__close-btn:hover {
+  background: rgba(239, 68, 68, 0.85);
+  border-color: rgba(239, 68, 68, 1);
+  transform: scale(1.08);
+}
+
+.dealer-lightbox__stage {
+  position: relative;
+  width: 100%;
+  height: min(68vh, 600px);
+  background: #020617;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  touch-action: pan-y;
+}
+
+.dealer-lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  animation: lightboxFadeIn 0.22s ease-out;
+}
+
+@keyframes lightboxFadeIn {
+  from {
+    opacity: 0.6;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.dealer-lightbox__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  z-index: 5;
+}
+
+.dealer-lightbox__arrow:hover {
+  background: #1d4ed8;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.5);
+}
+
+.dealer-lightbox__arrow--prev {
+  left: 1rem;
+}
+
+.dealer-lightbox__arrow--next {
+  right: 1rem;
+}
+
+.dealer-lightbox__thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 6px 4px 6px;
+  overflow-x: auto;
+}
+
+.dealer-lightbox__thumb-btn {
+  width: 4.8rem;
+  height: 3.2rem;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #1e293b;
+  cursor: pointer;
+  opacity: 0.55;
+  padding: 0;
+  transition: opacity 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dealer-lightbox__thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dealer-lightbox__thumb-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.dealer-lightbox__thumb-btn.is-active {
+  opacity: 1;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.45);
+  transform: translateY(-2px);
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Info */
+.dealer-hero__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dealer-brand-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
+}
+
+.dealer-title {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.dealer-slogan {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.dealer-description {
+  font-size: 0.98rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Selector de Versión de Transmisión (Mecánico vs. Automático) */
+.dealer-transmission-picker {
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.dealer-transmission-picker__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.transmission-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-ink-muted);
+}
+
+.transmission-current-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-align: right;
+}
+
+.dealer-transmission-toggle {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.75rem;
+}
+
+.dealer-transmission-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-rule);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.dealer-transmission-btn:hover {
+  border-color: #93c5fd;
+  background: var(--color-surface-hover);
+  transform: translateY(-1px);
+}
+
+.dealer-transmission-btn.is-active {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  box-shadow: 0 0 0 1px var(--color-accent), 0 2px 8px rgba(29, 78, 216, 0.15);
+}
+
+.dealer-transmission-btn .trans-btn-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.dealer-transmission-btn.is-active .trans-btn-name {
+  color: var(--color-accent);
+}
+
+.dealer-transmission-btn .trans-btn-price {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.dealer-transmission-btn.is-active .trans-btn-price {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.dealer-transmission-single-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.dealer-transmission-single-badge svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Caja de Precios y Financiamiento */
+.dealer-pricing-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dealer-pricing-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.price-tag-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+.dealer-price-nio {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+}
+
+.dealer-price-usd {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #475569;
+  margin-top: 0.2rem;
+}
+
+.dealer-credit-col {
+  text-align: right;
+}
+
+.dealer-down-nio {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.dealer-down-usd {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 0.15rem;
+}
+
+.dealer-term-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 0.2rem;
+}
+
+.dealer-hero__cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.dealer-btn-primary {
+  flex: 1 1 12rem;
+  min-height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dealer-btn-primary:hover {
+  background: var(--color-accent-hover);
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25);
+}
+
+.dealer-btn-secondary {
+  flex: 1 1 12rem;
+  min-height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dealer-btn-secondary:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+/* Métricas Rápidas */
+.dealer-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.65rem;
+}
+
+.dealer-metric-pill {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+}
+
+.dealer-metric-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 0.15rem;
+}
+
+.dealer-metric-value {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Anclas de Secciones */
+#financiamiento,
+#ficha-tecnica {
+  scroll-margin-top: 5rem;
+}
+
+/* 3. Showcase Cinemático de Producto (Estilo Tesla - Experiencia Editorial con Fotos y Scroll Animado) */
+.dealer-tesla-showcase {
+  background: #090e1a;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(29, 78, 216, 0.15), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(15, 23, 42, 0.8), transparent 70%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-block: clamp(4rem, 7vw, 6.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.dealer-showcase-intro {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  text-align: center;
+  margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.dealer-showcase-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #60a5fa;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.dealer-showcase-main-title {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 48rem;
+  margin-inline: auto;
+  margin-bottom: 0.75rem;
+}
+
+.dealer-showcase-main-desc {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: #94a3b8;
+  max-width: 42rem;
+  margin-inline: auto;
+  line-height: 1.65;
+}
+
+.dealer-showcase-container {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4.5rem, 8vw, 7.5rem);
+}
+
+/* Fila Alternada (Zig-Zag Tesla) */
+.dealer-showcase-row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 4.5vw, 4.5rem);
+}
+
+/* Posicionamiento: Por defecto Imagen a la izquierda (col 1..7), Contenido a la derecha (col 8..12) */
+.dealer-showcase-row .dealer-showcase-media {
+  grid-column: 1 / span 7;
+}
+
+.dealer-showcase-row .dealer-showcase-content {
+  grid-column: 8 / span 5;
+}
+
+/* Fila Invertida: Contenido a la izquierda (col 1..5), Imagen a la derecha (col 6..12) */
+.dealer-showcase-row.is-reversed .dealer-showcase-media {
+  grid-column: 6 / span 7;
+  order: 2;
+}
+
+.dealer-showcase-row.is-reversed .dealer-showcase-content {
+  grid-column: 1 / span 5;
+  order: 1;
+}
+
+/* Contenedor Visual de la Imagen */
+.dealer-showcase-media__inner {
+  display: block;
+  width: 100%;
+  padding: 0;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.dealer-showcase-media__inner:hover {
+  transform: translateY(-4px);
+  border-color: rgba(96, 165, 250, 0.4);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.75), 0 0 30px rgba(37, 99, 235, 0.2);
+}
+
+.dealer-showcase-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dealer-showcase-media__inner:hover .dealer-showcase-img {
+  transform: scale(1.04);
+}
+
+.dealer-showcase-media__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.8) 0%, transparent 45%);
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.dealer-showcase-media__inner:hover .dealer-showcase-media__overlay,
+.dealer-showcase-media__inner:focus-visible .dealer-showcase-media__overlay {
+  opacity: 1;
+}
+
+.dealer-showcase-zoom-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor Editorial de Texto */
+.dealer-showcase-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.dealer-showcase-badge-wrap {
+  margin-bottom: 0.85rem;
+}
+
+.dealer-showcase-pill {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #93c5fd;
+  background: rgba(30, 58, 138, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 0.3rem 0.85rem;
+  border-radius: 6px;
+}
+
+.dealer-showcase-title {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.dealer-showcase-subtitle {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: 600;
+  color: #60a5fa;
+  margin-bottom: 1.15rem;
+  line-height: 1.4;
+}
+
+.dealer-showcase-desc {
+  font-size: 1rem;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.dealer-showcase-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dealer-showcase-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  color: #e2e8f0;
+  line-height: 1.45;
+}
+
+.dealer-showcase-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.25);
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  color: #60a5fa;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Variantes visuales para SEGURIDAD INTEGRAL */
+.dealer-showcase-pill--safety {
+  color: #34d399;
+  background: rgba(6, 78, 59, 0.45);
+  border-color: rgba(52, 211, 153, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dealer-showcase-pill-icon {
+  flex-shrink: 0;
+  color: #34d399;
+}
+
+.dealer-showcase-pill-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6ee7b7;
+  margin-left: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.safety-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+}
+
+.dealer-showcase-check--safety {
+  background: rgba(6, 78, 59, 0.35);
+  border-color: rgba(52, 211, 153, 0.5);
+  color: #34d399;
+}
+
+.dealer-showcase-angle-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.dealer-angle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.dealer-angle-btn:hover {
+  background: rgba(30, 41, 59, 0.9);
+  color: #ffffff;
+  border-color: rgba(52, 211, 153, 0.5);
+}
+
+.dealer-angle-btn.is-active {
+  background: rgba(6, 78, 59, 0.75);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.7);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
+}
+
+/* Animaciones de Scroll Dedicadas para el Showcase Tesla */
+.dealer-showcase-media.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(36px) scale(0.96);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.dealer-showcase-media.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.dealer-showcase-content.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.12s, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+  will-change: opacity, transform;
+}
+
+.dealer-showcase-content.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* 5. Calculadora de Financiamiento */
+.dealer-financing-section {
+  background: #ffffff;
+  border-block: 1px solid #e2e8f0;
+  padding-block: 4rem;
+}
+
+.dealer-section-header {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.dealer-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
+}
+
+.dealer-eyebrow-inverse {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f7f0f0;
+  margin-bottom: 0.35rem;
+}
+
+.dealer-section-title {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.dealer-section-desc {
+  font-size: 1.05rem;
+  color: #64748b;
+  max-width: 55ch;
+  margin-inline: auto;
+}
+
+.dealer-calc-grid {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.dealer-calc-controls {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.dealer-calc-field {
+  margin-bottom: 1.75rem;
+}
+
+.dealer-calc-field__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.dealer-calc-field label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.dealer-calc-down-values {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.dealer-calc-down-values strong {
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.dealer-calc-down-values span {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.dealer-range-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #cbd5e1;
+  outline: none;
+  cursor: pointer;
+  accent-color: #0f172a;
+}
+
+.dealer-range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.dealer-terms-selector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.65rem;
+}
+
+.dealer-term-pill {
+  flex: 1 1 5rem;
+  min-height: 2.75rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dealer-term-pill:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.dealer-term-pill.is-active {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+}
+
+.dealer-calc-note {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+/* Resumen Calculadora */
+.dealer-summary-card {
+  background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 16px;
+  padding: 2.5rem;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+  text-align: center;
+}
+
+.dealer-summary-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fca5a5;
+  margin-bottom: 0.5rem;
+}
+
+.dealer-monthly-nio {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.dealer-per-month {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-left: 0.25rem;
+}
+
+.dealer-monthly-usd {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
+}
+
+.dealer-summary-details {
+  border-block: 1px solid rgba(255, 255, 255, 0.1);
+  padding-block: 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: #94a3b8;
+}
+
+.summary-row strong {
+  color: #ffffff;
+}
+
+.dealer-summary-cta {
+  width: 100%;
+  min-height: 3.25rem;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dealer-summary-cta:hover {
+  background: var(--color-accent-hover);
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.4);
+}
+
+/* 6. Matriz Técnica Exhaustiva */
+.dealer-specs-section {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  padding-block: 4rem;
+}
+
+.dealer-specs-tables {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.dealer-spec-group {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dealer-spec-group__title {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  padding: 1rem 1.5rem;
+  margin: 0;
+}
+
+.dealer-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dealer-spec-table th,
+.dealer-spec-table td {
+  padding: 0.85rem 1.5rem;
+  font-size: 0.88rem;
+  border-bottom: 1px solid #f1f5f9;
+  text-align: left;
+}
+
+.dealer-spec-table tr:last-child th,
+.dealer-spec-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dealer-spec-table th {
+  font-weight: 600;
+  color: #64748b;
+  width: 45%;
+}
+
+.dealer-spec-table td {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.dealer-spec-table tr:hover {
+  background-color: #fafbfc;
+}
+
+.dealer-specs-actions {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.dealer-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 1px solid #cbd5e1;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dealer-print-btn:hover {
+  background: #f1f5f9;
+  border-color: #0f172a;
+}
+
+/* 7. Banner de Contacto Directo */
+.dealer-contact-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 16px;
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  margin-bottom: 3rem;
+  padding: clamp(2.5rem, 5vw, 4rem);
+  color: #ffffff;
+  text-align: center;
+}
+
+.dealer-contact-banner__content {
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+.banner-contact-title {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f7f0f0;
+  margin-bottom: 0.35rem;
+}
+
+.dealer-contact-banner h2,
+#banner-contact-title {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.dealer-contact-banner p {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.dealer-contact-banner__actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dealer-banner-btn-primary {
+  min-height: 3.25rem;
+  padding: 0.75rem 2rem;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dealer-banner-btn-primary:hover {
+  background: var(--color-accent-hover);
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.35);
+}
+
+.dealer-banner-btn-secondary {
+  min-height: 3.25rem;
+  padding: 0.75rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dealer-banner-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 8. Barra Fija Inferior (Sticky Bar) */
+.dealer-detail-page {
+  padding-bottom: 5.5rem;
+}
+
+.dealer-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid #e2e8f0;
+  padding-block: 0.75rem;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+  z-index: 50;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease;
+  will-change: transform, opacity;
+}
+
+.dealer-sticky-bar.is-hidden {
+  transform: translateY(105%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dealer-sticky-bar__inner {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dealer-sticky-bar__info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.dealer-sticky-thumb {
+  width: 3.75rem;
+  height: 2.5rem;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #f1f5f9;
+}
+
+.dealer-sticky-title {
+  display: block;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.dealer-sticky-subtitle {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.dealer-sticky-btn {
+  min-height: 2.75rem;
+  padding: 0.5rem 1.5rem;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dealer-sticky-btn:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Ocultar barra flotante y botones no imprimibles en modo impresión */
+@media print {
+  .dealer-top-nav,
+  .dealer-tabs-bar,
+  .dealer-sticky-bar,
+  .dealer-hero__cta-group,
+  .dealer-summary-cta,
+  .dealer-specs-actions,
+  .dealer-contact-banner {
+    display: none !important;
+  }
+  .dealer-detail-page {
+    background: #ffffff !important;
+    padding-bottom: 0 !important;
+  }
+  .dealer-story-card,
+  .dealer-spec-group {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}
+
+
+/* ==========================================================================
+   Request Form View (RequestForm) - Dealer Showroom Layout
+   ========================================================================== */
+
+.request-page {
+  padding-block: clamp(1.5rem, 4vw, 3.5rem);
+  background: var(--color-paper-2);
+  min-height: calc(100vh - 12rem);
+}
+
+.request-page__content {
+  width: min(100% - 2.5rem, 74rem);
+  margin-inline: auto;
+}
+
+.request-layout {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1.05fr) minmax(22rem, 1.45fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Sidebar: Vehicle Recap & Guarantees */
+.request-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.request-vehicle-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.request-vehicle-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.request-vehicle-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.request-vehicle-card__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.request-vehicle-card__body {
+  padding: 1.5rem;
+}
+
+.request-vehicle-card__title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+}
+
+.request-vehicle-card__prices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.request-vehicle-card__price-nio {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+}
+
+.request-vehicle-card__price-usd {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.request-vehicle-card__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.request-vehicle-card__spec-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+/* Clean Finance Badge inside Vehicle Card */
+.request-vehicle-card__finance-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.15rem;
+  padding: 0.85rem 1rem;
+  background: #f0f7ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+}
+
+.request-vehicle-card__finance-badge .finance-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.request-vehicle-card__finance-badge .finance-badge-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.request-vehicle-card__finance-badge .finance-badge-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1e40af;
+}
+
+.request-vehicle-card__finance-badge .finance-badge-value {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.request-vehicle-card__finance-badge .finance-badge-sub {
+  font-size: 0.78rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* Guarantees Box */
+.request-guarantees-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.request-guarantees-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-muted);
+  margin-bottom: 0.85rem;
+}
+
+.request-guarantees-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.request-guarantee-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.request-guarantee-item svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.request-guarantee-item span {
+  font-size: 0.88rem;
+  color: var(--color-ink);
+  line-height: 1.4;
+}
+
+/* Direct Assistance Call Box */
+.request-direct-chat {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.request-direct-chat strong {
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.request-direct-chat p {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.request-direct-chat__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.request-direct-chat__btn:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25);
+}
+
+/* Right Main Form Card */
+.request-card {
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  border-radius: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.request-card h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.request-intro {
+  font-size: 0.95rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+/* Segmented Request Type Switcher */
+.request-type-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.35rem;
+  border-radius: 10px;
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  margin-bottom: 1.5rem;
+}
+
+.request-type-toggle__btn {
+  flex: 1 1 140px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 7px;
+  background: transparent;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-ink-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.request-type-toggle__btn:hover {
+  color: var(--color-ink);
+}
+
+.request-type-toggle__btn.is-active {
+  background: var(--color-surface);
+  color: var(--color-accent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Executive Finance Summary Card inside the Form */
+.request-finance-summary {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 1.15rem 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.request-finance-summary__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.request-finance-summary__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.request-finance-summary__title svg {
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.request-finance-summary__tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1d4ed8;
+  background: #dbeafe;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.request-finance-summary__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+
+.request-finance-summary__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+}
+
+.request-finance-summary__item.highlight {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.finance-item-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #64748b;
+}
+
+.request-finance-summary__item.highlight .finance-item-label {
+  color: #1e40af;
+}
+
+.finance-item-value {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.request-finance-summary__item.highlight .finance-item-value {
+  color: #1d4ed8;
+}
+
+.finance-item-value small {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.finance-item-sub {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.request-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.request-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.control-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.control-input-icon {
+  position: absolute;
+  left: 0.85rem;
+  color: var(--color-ink-faint);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.control-input-wrap input,
+.control-input-wrap select,
+.control-input-wrap textarea {
+  width: 100%;
+  min-height: 2.85rem;
+  padding: 0.65rem 0.85rem 0.65rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-rule);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 0.92rem;
+  font-family: inherit;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+
+.control-input-wrap textarea {
+  min-height: 5rem;
+  padding-top: 0.65rem;
+  resize: vertical;
+}
+
+.control-input-wrap input:focus,
+.control-input-wrap select:focus,
+.control-input-wrap textarea:focus {
+  background: var(--color-surface);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+  outline: none;
+}
+
+/* Indicador de campo obligatorio */
+.req-marker {
+  color: #dc2626;
+  font-weight: 700;
+  margin-left: 0.2rem;
+}
+
+/* Estados de Error y Validación de Campos */
+.control.has-error label {
+  color: #b91c1c;
+}
+
+.control.has-error .control-input-icon {
+  color: #dc2626;
+}
+
+.control.has-error input,
+.control.has-error select,
+.control.has-error textarea,
+.control-input-wrap input[aria-invalid="true"],
+.control-input-wrap select[aria-invalid="true"],
+.control-input-wrap textarea[aria-invalid="true"] {
+  border-color: #ef4444;
+  background-color: #fffbfb;
+}
+
+.control.has-error input:focus,
+.control.has-error select:focus,
+.control.has-error textarea:focus,
+.control-input-wrap input[aria-invalid="true"]:focus,
+.control-input-wrap select[aria-invalid="true"]:focus,
+.control-input-wrap textarea[aria-invalid="true"]:focus {
+  border-color: #dc2626;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.22);
+}
+
+/* Mensajes de error en letras rojas llamativas y accesibles */
+.field-error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.35rem 0 0 0;
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.field-error-icon {
+  flex-shrink: 0;
+  color: #dc2626;
+}
+
+.form-alert {
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.submit-request {
+  min-height: 3.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.3);
+}
+
+.submit-request:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.4);
+}
+
+.submit-request:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.request-privacy-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Redesigned Submission Success Screen - Executive Proforma Voucher
+   ========================================================================== */
+
+.submission-success {
+  max-width: 48rem;
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 3.25rem);
+  border-radius: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.submission-success__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+}
+
+.submission-success__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+  animation: popInSuccess 0.4s var(--ease-out);
+}
+
+@keyframes popInSuccess {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.submission-success__folio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  font-size: 0.82rem;
+}
+
+.submission-success__folio-pill .folio-label {
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+}
+
+.submission-success__folio-pill .folio-number {
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.submission-success__folio-pill .folio-status {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+}
+
+.submission-success__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-ink);
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.submission-success__subtitle {
+  max-width: 52ch;
+  color: var(--color-ink-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Proforma Slip Voucher */
+.submission-proforma-slip {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+  text-align: left;
+}
+
+.proforma-slip__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+}
+
+.proforma-slip__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.proforma-slip__brand .brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3b82f6;
+}
+
+.proforma-slip__brand .brand-sub {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.proforma-slip__date {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.proforma-slip__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-bottom: 1px dashed #cbd5e1;
+}
+
+.proforma-card-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.proforma-section-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+.proforma-vehicle-preview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.proforma-vehicle-img {
+  width: 80px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #e2e8f0;
+  flex-shrink: 0;
+}
+
+.proforma-vehicle-details h4 {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.15rem 0;
+}
+
+.proforma-vehicle-meta {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0 0 0.35rem 0;
+}
+
+.proforma-vehicle-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.proforma-vehicle-price strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.proforma-vehicle-price span {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.proforma-dl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+}
+
+.proforma-dl-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.proforma-dl-row dt {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.proforma-dl-row dd {
+  margin: 0;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: right;
+}
+
+.proforma-dl-row.highlight {
+  background: #f0fdf4;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #bbf7d0;
+}
+
+.proforma-dl-row.highlight dt {
+  color: #15803d;
+  font-weight: 700;
+}
+
+.proforma-dl-row.highlight dd {
+  color: #166534;
+}
+
+/* Proforma Finance Box */
+.proforma-finance-box {
+  padding: 1.15rem 1.25rem;
+  background: #f8fafc;
+  border-bottom: 1px dashed #cbd5e1;
+}
+
+.proforma-finance-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.proforma-finance-header .finance-icon {
+  font-size: 1.35rem;
+}
+
+.proforma-finance-header strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.proforma-finance-header p {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.proforma-finance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.proforma-finance-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+}
+
+.proforma-finance-item.highlight {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.pfi-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #64748b;
+}
+
+.proforma-finance-item.highlight .pfi-label {
+  color: #1e40af;
+}
+
+.pfi-value {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.proforma-finance-item.highlight .pfi-value {
+  color: #1d4ed8;
+}
+
+.pfi-sub {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.proforma-notes-box {
+  padding: 0.85rem 1.25rem;
+  background: #ffffff;
+  border-top: 1px solid #f1f5f9;
+  font-size: 0.85rem;
+}
+
+.proforma-notes-box .notes-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.proforma-notes-box .notes-content {
+  margin: 0;
+  color: #334155;
+  font-style: italic;
+}
+
+/* Customer Roadmap */
+.submission-roadmap {
+  width: 100%;
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.submission-roadmap__title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.submission-roadmap__steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.roadmap-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.roadmap-step .step-num {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #64748b;
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.roadmap-step.is-complete .step-num {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.roadmap-step.is-current .step-num {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.roadmap-step .step-content strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--color-ink);
+  margin-bottom: 0.15rem;
+}
+
+.roadmap-step .step-content p {
+  font-size: 0.78rem;
+  color: var(--color-ink-muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Final Action Buttons */
+.submission-success__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.submission-success__print-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.28);
+}
+
+.submission-success__print-btn:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.35);
+}
+
+.submission-success__back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  padding: 0.55rem 1.15rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.submission-success__back-btn:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+/* Print Styles for Official Voucher */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .submission-proforma-slip,
+  .submission-proforma-slip * {
+    visibility: visible;
+  }
+  .submission-proforma-slip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid #94a3b8;
+  }
+}

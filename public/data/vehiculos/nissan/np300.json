@@ -1,0 +1,238 @@
+{
+  "id": "nissan-np300-2024",
+  "brand": "Nissan",
+  "model": "NP300",
+  "year": 2024,
+  "price": 26500,
+  "priceNIO": 972550,
+  "currency": "USD",
+  "category": "Pickup",
+  "transmission": "Manual",
+  "fuel": "Gasolina",
+  "description": "El referente indiscutible del trabajo rudo en Centroamérica, con chasis reforzado de gran capacidad y durabilidad.",
+  "image": "./images/vehiculos/nissan-np300-2024/nissan-np300-2024-1.jpg",
+  "imageAlt": "Nissan NP300 blanca lista para trabajo",
+  "gallery": [
+    "./images/vehiculos/nissan-np300-2024/nissan-np300-2024-1.jpg",
+    "./images/vehiculos/nissan-np300-2024/nissan-np300-2024-2.jpg",
+    "./images/vehiculos/nissan-np300-2024/nissan-np300-2024-3.jpg",
+    "./images/vehiculos/nissan-np300-2024/nissan-np300-2024-4.jpg",
+    "./images/vehiculos/nissan-np300-2024/nissan-np300-2024-5.jpg"
+  ],
+  "slogan": "Nissan NP300 combina ingeniería certificada, confort y eficiencia para las exigencias de Nicaragua.",
+  "metrics": [
+    {
+      "label": "Motorización",
+      "value": "2.5L Turbo Diésel Intercooler"
+    },
+    {
+      "label": "Potencia",
+      "value": "161 HP / 403 Nm"
+    },
+    {
+      "label": "Transmisión",
+      "value": "Manual"
+    },
+    {
+      "label": "Capacidad de Tanque",
+      "value": "80 Litros"
+    },
+    {
+      "label": "Plazas",
+      "value": "5 Ocupantes"
+    }
+  ],
+  "colors": [
+    {
+      "name": "Blanco Glaciar",
+      "hex": "#ffffff"
+    },
+    {
+      "name": "Plata Metálico",
+      "hex": "#c5c9cd"
+    },
+    {
+      "name": "Gris Grafito",
+      "hex": "#40454d"
+    },
+    {
+      "name": "Negro Profundo",
+      "hex": "#121212"
+    },
+    {
+      "name": "Rojo Pasión",
+      "hex": "#8f1717"
+    },
+    {
+      "name": "Azul Marino",
+      "hex": "#1a2f4a"
+    }
+  ],
+  "features": [
+    {
+      "id": "design",
+      "category": "Diseño Exterior",
+      "title": "Diseño y Presencia de Nissan NP300",
+      "subtitle": "Líneas aerodinámicas creadas para destacar con personalidad única.",
+      "description": "El Nissan NP300 cuenta con una carrocería esculpida para optimizar el flujo de aire y brindar una presencia vanguardista en la ciudad o en carretera.",
+      "highlights": [
+        "Faros principales con tecnología LED",
+        "Rines de aleación ligera",
+        "Estructura robusta de alta rigidez"
+      ]
+    },
+    {
+      "id": "interior",
+      "category": "Confort Interior",
+      "title": "Habitáculo Espacioso y Confortable",
+      "subtitle": "Ergonomía superior diseñada para cada uno de los ocupantes.",
+      "description": "Asientos tapizados con materiales resistentes y suaves al tacto, climatización eficiente y una insonorización de cabina pensada para brindar viajes sumamente placenteros.",
+      "highlights": [
+        "Capacidad cómoda para 5 Ocupantes",
+        "Asientos traseros abatibles",
+        "Múltiples portavasos y espacios de almacenamiento"
+      ]
+    },
+    {
+      "id": "technology",
+      "category": "Tecnología y Conectividad",
+      "title": "Conectividad Inteligente y Control Total",
+      "subtitle": "Sistema multimedia compatible con smartphones modernos.",
+      "description": "Pantalla táctil multifuncional con soporte para Apple CarPlay® y Android Auto™, mandos de llamada y audio al volante para mantener la atención siempre en el camino.",
+      "highlights": [
+        "Compatibilidad Apple CarPlay y Android Auto",
+        "Controles al volante ergonómicos",
+        "Conexión Bluetooth y puertos USB"
+      ]
+    },
+    {
+      "id": "safety",
+      "category": "Seguridad Integral",
+      "title": "Sistemas de Seguridad Activa y Pasiva",
+      "subtitle": "Protección integral para conductor y pasajeros en todo momento.",
+      "description": "Estructura con zonas de deformación programada para absorber impactos, frenos con antibloqueo ABS, distribución electrónica de frenado EBD y control de estabilidad vehicular.",
+      "highlights": [
+        "Frenos ABS con asistente EBD",
+        "Control de Estabilidad Vehicular",
+        "Múltiples bolsas de aire SRS"
+      ]
+    }
+  ],
+  "specifications": [
+    {
+      "category": "Motor y Rendimiento",
+      "items": [
+        {
+          "label": "Propulsor",
+          "value": "2.5L Turbo Diésel Intercooler"
+        },
+        {
+          "label": "Potencia Declarada",
+          "value": "161 HP / 403 Nm"
+        },
+        {
+          "label": "Tipo de Combustible",
+          "value": "Gasolina"
+        },
+        {
+          "label": "Alimentación",
+          "value": "Inyección Electrónica Multipunto"
+        },
+        {
+          "label": "Capacidad de Tanque",
+          "value": "80 Litros"
+        }
+      ]
+    },
+    {
+      "category": "Transmisión y Chasis",
+      "items": [
+        {
+          "label": "Caja de Cambios",
+          "value": "Manual"
+        },
+        {
+          "label": "Tipo de Tracción",
+          "value": "4x4 con reductora"
+        },
+        {
+          "label": "Suspensión Delantera",
+          "value": "Independiente tipo MacPherson"
+        },
+        {
+          "label": "Frenos",
+          "value": "Discos ventilados con asistencia electrónica"
+        },
+        {
+          "label": "Dirección",
+          "value": "Asistida eléctricamente sensible a la velocidad"
+        }
+      ]
+    },
+    {
+      "category": "Dimensiones y Capacidades",
+      "items": [
+        {
+          "label": "Carrocería",
+          "value": "Pickup"
+        },
+        {
+          "label": "Capacidad de Pasajeros",
+          "value": "5 Ocupantes"
+        },
+        {
+          "label": "Año del Modelo",
+          "value": "2024"
+        },
+        {
+          "label": "Garantía de Fábrica",
+          "value": "3 años o 100,000 kilómetros"
+        }
+      ]
+    },
+    {
+      "category": "Seguridad y Asistencias",
+      "items": [
+        {
+          "label": "Frenado Asistido",
+          "value": "ABS + EBD + Asistencia de Frenado"
+        },
+        {
+          "label": "Control Dinámico",
+          "value": "Control de Estabilidad y Tracción"
+        },
+        {
+          "label": "Seguridad Infantil",
+          "value": "Puntos de anclaje ISOFIX"
+        },
+        {
+          "label": "Cinturones",
+          "value": "De 3 puntos retráctiles con pretensores"
+        }
+      ]
+    }
+  ],
+  "financing": {
+    "minDownPaymentPercent": 20,
+    "defaultTermMonths": 48,
+    "maxTermMonths": 72,
+    "interestRateAnnual": 8.8
+  },
+  "transmissions": [
+    {
+      "type": "Manual",
+      "label": "Manual de 6 velocidades reforzada para trabajo pesado",
+      "shortLabel": "Mecánico (6 Vel)",
+      "priceUSD": 26500,
+      "priceNIO": 972550,
+      "isDefault": true
+    },
+    {
+      "type": "Automática",
+      "label": "Automática de 7 velocidades con modo manual secuencial",
+      "shortLabel": "Automático (7 Vel)",
+      "priceUSD": 28900,
+      "priceNIO": 1060630
+    }
+  ]
+}

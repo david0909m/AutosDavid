@@ -1,0 +1,250 @@
+{
+  "id": "toyota-hilux-2024",
+  "brand": "Toyota",
+  "model": "Hilux",
+  "year": 2024,
+  "price": 42900,
+  "priceNIO": 1574430,
+  "currency": "USD",
+  "category": "Pickup",
+  "transmission": "Manual",
+  "fuel": "Diésel",
+  "description": "Legendaria pickup indestructible con chasis de largueros, tracción 4x4 y capacidad de remolque de hasta 3.5 toneladas.",
+  "image": "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-optimized.jpg",
+  "imageAlt": "Toyota Hilux doble cabina en acción",
+  "gallery": [
+    "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-optimized.jpg",
+    "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-2.jpg",
+    "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-3.jpg",
+    "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-4.jpg",
+    "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-5.jpg"
+  ],
+  "slogan": "La leyenda indestructible que domina cualquier terreno",
+  "metrics": [
+    {
+      "label": "Motor",
+      "value": "2.8L Turbo Diésel D-4D"
+    },
+    {
+      "label": "Potencia",
+      "value": "201 HP / 500 Nm"
+    },
+    {
+      "label": "Tracción",
+      "value": "4x4 con Reductora"
+    },
+    {
+      "label": "Cap. Carga",
+      "value": "1,000 kg / 3.5t Remolque"
+    },
+    {
+      "label": "Pasajeros",
+      "value": "5 en Doble Cabina"
+    }
+  ],
+  "colors": [
+    {
+      "name": "Blanco Puro",
+      "hex": "#ffffff"
+    },
+    {
+      "name": "Plata Metalizado",
+      "hex": "#c0c5c9"
+    },
+    {
+      "name": "Gris Oscuro Metalizado",
+      "hex": "#3d444b"
+    },
+    {
+      "name": "Negro Mica",
+      "hex": "#141414"
+    },
+    {
+      "name": "Rojo Carmín",
+      "hex": "#871b1b"
+    },
+    {
+      "name": "Bronce Metalizado",
+      "hex": "#5f5548"
+    }
+  ],
+  "features": [
+    {
+      "id": "design",
+      "category": "Diseño Exterior",
+      "title": "Imponente Fortaleza Estructural",
+      "subtitle": "Chasis reforzado con largueros de acero de ultra alta resistencia.",
+      "description": "Hilux exhibe una presencia inconfundible con parrilla tridimensional robusta, defensa delantera con protector de cárter integrado y faros full LED de alta penetración.",
+      "highlights": [
+        "Faros delanteros LED con ajuste de altura",
+        "Rines de aleación todoterreno de 18 pulgadas",
+        "Bedliner protector de tina de fábrica"
+      ]
+    },
+    {
+      "id": "interior",
+      "category": "Confort Interior",
+      "title": "Cabina Ergonómica de Doble Propósito",
+      "subtitle": "Espacio de trabajo indestructible con el confort de una SUV de lujo.",
+      "description": "Hilux fusiona durabilidad extrema con comodidades modernas: asientos ergonómicos de cuero perforado, guantera climatizada y amplia visibilidad panorámica.",
+      "highlights": [
+        "Tapicería de cuero sintético lavable",
+        "Guantera refrigerada para bebidas",
+        "Asiento trasero abatible 60:40 con compartimentos inferiores"
+      ]
+    },
+    {
+      "id": "technology",
+      "category": "Tecnología y Conectividad",
+      "title": "Herramientas Digitales para el Trabajo Diario",
+      "subtitle": "Pantalla táctil de 8” y pantalla multi-información a color en el tablero.",
+      "description": "Sistema multimedia compatible con Apple CarPlay® y Android Auto™ por cable e inalámbrico, cámara de reversa con guías dinámicas y sensores perimetrales.",
+      "highlights": [
+        "Cámara de reversa con guías activas",
+        "Sistema de audio con 6 parlantes",
+        "Selectores electrónicos de tracción 4WD (2H, 4H y 4L)"
+      ]
+    },
+    {
+      "id": "safety",
+      "category": "Seguridad Integral",
+      "title": "Protección Absoluta Dentro y Fuera del Camino",
+      "subtitle": "Control de tracción activo A-TRC y diferencial trasero autoblocante.",
+      "description": "Cuenta con 7 bolsas de aire, control de balanceo de remolque (TSC), asistente de descenso en pendientes (DAC) y estructura de cabina GOA con máxima rigidez torsional.",
+      "highlights": [
+        "Bloqueo de diferencial trasero al 100%",
+        "Control de Balanceo de Remolque (TSC)",
+        "Asistente de arranque y descenso en pendientes (HAC/DAC)"
+      ]
+    }
+  ],
+  "specifications": [
+    {
+      "category": "Motor y Rendimiento",
+      "items": [
+        {
+          "label": "Cilindrada",
+          "value": "2,755 cc (1GD-FTV)"
+        },
+        {
+          "label": "Configuración",
+          "value": "4 cilindros en línea, 16 válvulas DOHC con Turbo Intercooler VNT"
+        },
+        {
+          "label": "Potencia Máxima",
+          "value": "201 HP @ 3,400 rpm"
+        },
+        {
+          "label": "Torque Máximo",
+          "value": "500 Nm @ 1,600 - 2,800 rpm"
+        },
+        {
+          "label": "Alimentación",
+          "value": "Inyección directa Common Rail Diésel"
+        },
+        {
+          "label": "Capacidad de Tanque",
+          "value": "80 Litros (21.1 Galones)"
+        }
+      ]
+    },
+    {
+      "category": "Transmisión y Chasis",
+      "items": [
+        {
+          "label": "Tracción",
+          "value": "4x4 desconectable con reductora y bloqueo de diferencial"
+        },
+        {
+          "label": "Transmisión",
+          "value": "Manual de 6 velocidades con iMT / Automática secuencial"
+        },
+        {
+          "label": "Suspensión Delantera",
+          "value": "Doble horquilla con resortes helicoidales y barra estabilizadora"
+        },
+        {
+          "label": "Suspensión Trasera",
+          "value": "Eje rígido con ballestas semielípticas longitudinales"
+        },
+        {
+          "label": "Frenos Delanteros",
+          "value": "Discos ventilados de 4 pistones"
+        },
+        {
+          "label": "Capacidad de Vadeo",
+          "value": "700 mm"
+        }
+      ]
+    },
+    {
+      "category": "Dimensiones y Capacidades",
+      "items": [
+        {
+          "label": "Largo x Ancho x Alto",
+          "value": "5,325 mm x 1,855 mm x 1,815 mm"
+        },
+        {
+          "label": "Distancia entre ejes",
+          "value": "3,085 mm"
+        },
+        {
+          "label": "Despeje del suelo",
+          "value": "286 mm"
+        },
+        {
+          "label": "Capacidad de Carga Útil",
+          "value": "1,000 kg"
+        },
+        {
+          "label": "Capacidad de Remolque con Freno",
+          "value": "3,500 kg"
+        }
+      ]
+    },
+    {
+      "category": "Seguridad",
+      "items": [
+        {
+          "label": "Bolsas de Aire",
+          "value": "7 Airbags SRS (frontales, laterales, cortina y rodilla)"
+        },
+        {
+          "label": "Asistencias de Freno",
+          "value": "ABS con EBD y asistencia de frenado BA"
+        },
+        {
+          "label": "Control de Tracción",
+          "value": "A-TRC (Active Traction Control)"
+        },
+        {
+          "label": "Control de Estabilidad",
+          "value": "VSC + Asistente de remolque TSC"
+        }
+      ]
+    }
+  ],
+  "financing": {
+    "minDownPaymentPercent": 20,
+    "defaultTermMonths": 48,
+    "maxTermMonths": 72,
+    "interestRateAnnual": 8.9
+  },
+  "transmissions": [
+    {
+      "type": "Manual",
+      "label": "Manual de 6 velocidades con iMT (Intelligent Manual Transmission)",
+      "shortLabel": "Mecánico (6 Vel iMT)",
+      "priceUSD": 42900,
+      "priceNIO": 1574430,
+      "isDefault": true
+    },
+    {
+      "type": "Automática",
+      "label": "Automática Secuencial de 6 velocidades con modo Sport",
+      "shortLabel": "Automático (6 Vel)",
+      "priceUSD": 44700,
+      "priceNIO": 1640490
+    }
+  ]
+}

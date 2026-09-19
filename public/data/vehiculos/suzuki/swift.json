@@ -1,0 +1,238 @@
+{
+  "id": "suzuki-swift-2024",
+  "brand": "Suzuki",
+  "model": "Swift",
+  "year": 2024,
+  "price": 18900,
+  "priceNIO": 693630,
+  "currency": "USD",
+  "category": "Hatchback",
+  "transmission": "Manual",
+  "fuel": "Híbrido",
+  "description": "El clásico hatchback japonés con sistema microhíbrido SHVS, gran maniobrabilidad y conducción ágil.",
+  "image": "./images/vehiculos/suzuki-swift-2024/suzuki-swift-2024-1.jpg",
+  "imageAlt": "Suzuki Swift azul vista frontal",
+  "gallery": [
+    "./images/vehiculos/suzuki-swift-2024/suzuki-swift-2024-1.jpg",
+    "./images/vehiculos/suzuki-swift-2024/suzuki-swift-2024-2.png",
+    "./images/vehiculos/suzuki-swift-2024/suzuki-swift-2024-3.png",
+    "./images/vehiculos/suzuki-swift-2024/suzuki-swift-2024-4.jpg",
+    "./images/vehiculos/suzuki-swift-2024/suzuki-swift-2024-5.jpg"
+  ],
+  "slogan": "Suzuki Swift combina ingeniería certificada, confort y eficiencia para las exigencias de Nicaragua.",
+  "metrics": [
+    {
+      "label": "Motorización",
+      "value": "1.2L Dualjet Mild-Hybrid"
+    },
+    {
+      "label": "Potencia",
+      "value": "83 HP"
+    },
+    {
+      "label": "Transmisión",
+      "value": "Manual"
+    },
+    {
+      "label": "Capacidad de Tanque",
+      "value": "37 Litros"
+    },
+    {
+      "label": "Plazas",
+      "value": "5 Pasajeros"
+    }
+  ],
+  "colors": [
+    {
+      "name": "Blanco Glaciar",
+      "hex": "#ffffff"
+    },
+    {
+      "name": "Plata Metálico",
+      "hex": "#c5c9cd"
+    },
+    {
+      "name": "Gris Grafito",
+      "hex": "#40454d"
+    },
+    {
+      "name": "Negro Profundo",
+      "hex": "#121212"
+    },
+    {
+      "name": "Rojo Pasión",
+      "hex": "#8f1717"
+    },
+    {
+      "name": "Azul Marino",
+      "hex": "#1a2f4a"
+    }
+  ],
+  "features": [
+    {
+      "id": "design",
+      "category": "Diseño Exterior",
+      "title": "Diseño y Presencia de Suzuki Swift",
+      "subtitle": "Líneas aerodinámicas creadas para destacar con personalidad única.",
+      "description": "El Suzuki Swift cuenta con una carrocería esculpida para optimizar el flujo de aire y brindar una presencia vanguardista en la ciudad o en carretera.",
+      "highlights": [
+        "Faros principales con tecnología LED",
+        "Rines de aleación ligera",
+        "Estructura robusta de alta rigidez"
+      ]
+    },
+    {
+      "id": "interior",
+      "category": "Confort Interior",
+      "title": "Habitáculo Espacioso y Confortable",
+      "subtitle": "Ergonomía superior diseñada para cada uno de los ocupantes.",
+      "description": "Asientos tapizados con materiales resistentes y suaves al tacto, climatización eficiente y una insonorización de cabina pensada para brindar viajes sumamente placenteros.",
+      "highlights": [
+        "Capacidad cómoda para 5 Pasajeros",
+        "Asientos traseros abatibles",
+        "Múltiples portavasos y espacios de almacenamiento"
+      ]
+    },
+    {
+      "id": "technology",
+      "category": "Tecnología y Conectividad",
+      "title": "Conectividad Inteligente y Control Total",
+      "subtitle": "Sistema multimedia compatible con smartphones modernos.",
+      "description": "Pantalla táctil multifuncional con soporte para Apple CarPlay® y Android Auto™, mandos de llamada y audio al volante para mantener la atención siempre en el camino.",
+      "highlights": [
+        "Compatibilidad Apple CarPlay y Android Auto",
+        "Controles al volante ergonómicos",
+        "Conexión Bluetooth y puertos USB"
+      ]
+    },
+    {
+      "id": "safety",
+      "category": "Seguridad Integral",
+      "title": "Sistemas de Seguridad Activa y Pasiva",
+      "subtitle": "Protección integral para conductor y pasajeros en todo momento.",
+      "description": "Estructura con zonas de deformación programada para absorber impactos, frenos con antibloqueo ABS, distribución electrónica de frenado EBD y control de estabilidad vehicular.",
+      "highlights": [
+        "Frenos ABS con asistente EBD",
+        "Control de Estabilidad Vehicular",
+        "Múltiples bolsas de aire SRS"
+      ]
+    }
+  ],
+  "specifications": [
+    {
+      "category": "Motor y Rendimiento",
+      "items": [
+        {
+          "label": "Propulsor",
+          "value": "1.2L Dualjet Mild-Hybrid"
+        },
+        {
+          "label": "Potencia Declarada",
+          "value": "83 HP"
+        },
+        {
+          "label": "Tipo de Combustible",
+          "value": "Híbrido"
+        },
+        {
+          "label": "Alimentación",
+          "value": "Inyección Dual + Motor Eléctrico"
+        },
+        {
+          "label": "Capacidad de Tanque",
+          "value": "37 Litros"
+        }
+      ]
+    },
+    {
+      "category": "Transmisión y Chasis",
+      "items": [
+        {
+          "label": "Caja de Cambios",
+          "value": "Manual"
+        },
+        {
+          "label": "Tipo de Tracción",
+          "value": "Tracción Delantera (FWD)"
+        },
+        {
+          "label": "Suspensión Delantera",
+          "value": "Independiente tipo MacPherson"
+        },
+        {
+          "label": "Frenos",
+          "value": "Discos ventilados con asistencia electrónica"
+        },
+        {
+          "label": "Dirección",
+          "value": "Asistida eléctricamente sensible a la velocidad"
+        }
+      ]
+    },
+    {
+      "category": "Dimensiones y Capacidades",
+      "items": [
+        {
+          "label": "Carrocería",
+          "value": "Hatchback"
+        },
+        {
+          "label": "Capacidad de Pasajeros",
+          "value": "5 Pasajeros"
+        },
+        {
+          "label": "Año del Modelo",
+          "value": "2024"
+        },
+        {
+          "label": "Garantía de Fábrica",
+          "value": "3 años o 100,000 kilómetros"
+        }
+      ]
+    },
+    {
+      "category": "Seguridad y Asistencias",
+      "items": [
+        {
+          "label": "Frenado Asistido",
+          "value": "ABS + EBD + Asistencia de Frenado"
+        },
+        {
+          "label": "Control Dinámico",
+          "value": "Control de Estabilidad y Tracción"
+        },
+        {
+          "label": "Seguridad Infantil",
+          "value": "Puntos de anclaje ISOFIX"
+        },
+        {
+          "label": "Cinturones",
+          "value": "De 3 puntos retráctiles con pretensores"
+        }
+      ]
+    }
+  ],
+  "financing": {
+    "minDownPaymentPercent": 20,
+    "defaultTermMonths": 48,
+    "maxTermMonths": 72,
+    "interestRateAnnual": 8.8
+  },
+  "transmissions": [
+    {
+      "type": "Manual",
+      "label": "Manual de 5 velocidades ultraligera de embrague asistido",
+      "shortLabel": "Mecánico (5 Vel)",
+      "priceUSD": 17500,
+      "priceNIO": 642250,
+      "isDefault": true
+    },
+    {
+      "type": "Automática",
+      "label": "Automática CVT continuamente variable con paletas al volante",
+      "shortLabel": "Automático (CVT)",
+      "priceUSD": 18900,
+      "priceNIO": 693630
+    }
+  ]
+}

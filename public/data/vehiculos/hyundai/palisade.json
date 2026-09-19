@@ -1,0 +1,231 @@
+{
+  "id": "hyundai-palisade-2024",
+  "brand": "Hyundai",
+  "model": "Palisade",
+  "year": 2024,
+  "price": 56900,
+  "priceNIO": 2088230,
+  "currency": "USD",
+  "category": "SUV",
+  "transmission": "Automática",
+  "fuel": "Gasolina",
+  "description": "Buque insignia de 3 filas con asientos de capitán, potente motor V6 y experiencia de viaje de primera clase.",
+  "image": "./images/vehiculos/hyundai-palisade-2024/hyundai-palisade-2024-1.jpg",
+  "imageAlt": "Hyundai Palisade imponente en carretera",
+  "gallery": [
+    "./images/vehiculos/hyundai-palisade-2024/hyundai-palisade-2024-1.jpg",
+    "./images/vehiculos/hyundai-palisade-2024/hyundai-palisade-2024-2.jpg",
+    "./images/vehiculos/hyundai-palisade-2024/hyundai-palisade-2024-3.jpg",
+    "./images/vehiculos/hyundai-palisade-2024/hyundai-palisade-2024-4.jpg",
+    "./images/vehiculos/hyundai-palisade-2024/hyundai-palisade-2024-5.jpg"
+  ],
+  "slogan": "Hyundai Palisade combina ingeniería certificada, confort y eficiencia para las exigencias de Nicaragua.",
+  "metrics": [
+    {
+      "label": "Motorización",
+      "value": "3.8L V6 GDI HTRAC AWD"
+    },
+    {
+      "label": "Potencia",
+      "value": "291 HP"
+    },
+    {
+      "label": "Transmisión",
+      "value": "Automática"
+    },
+    {
+      "label": "Capacidad de Tanque",
+      "value": "71 Litros"
+    },
+    {
+      "label": "Plazas",
+      "value": "7-8 Pasajeros"
+    }
+  ],
+  "colors": [
+    {
+      "name": "Blanco Glaciar",
+      "hex": "#ffffff"
+    },
+    {
+      "name": "Plata Metálico",
+      "hex": "#c5c9cd"
+    },
+    {
+      "name": "Gris Grafito",
+      "hex": "#40454d"
+    },
+    {
+      "name": "Negro Profundo",
+      "hex": "#121212"
+    },
+    {
+      "name": "Rojo Pasión",
+      "hex": "#8f1717"
+    },
+    {
+      "name": "Azul Marino",
+      "hex": "#1a2f4a"
+    }
+  ],
+  "features": [
+    {
+      "id": "design",
+      "category": "Diseño Exterior",
+      "title": "Diseño y Presencia de Hyundai Palisade",
+      "subtitle": "Líneas aerodinámicas creadas para destacar con personalidad única.",
+      "description": "El Hyundai Palisade cuenta con una carrocería esculpida para optimizar el flujo de aire y brindar una presencia vanguardista en la ciudad o en carretera.",
+      "highlights": [
+        "Faros principales con tecnología LED",
+        "Rines de aleación ligera",
+        "Estructura robusta de alta rigidez"
+      ]
+    },
+    {
+      "id": "interior",
+      "category": "Confort Interior",
+      "title": "Habitáculo Espacioso y Confortable",
+      "subtitle": "Ergonomía superior diseñada para cada uno de los ocupantes.",
+      "description": "Asientos tapizados con materiales resistentes y suaves al tacto, climatización eficiente y una insonorización de cabina pensada para brindar viajes sumamente placenteros.",
+      "highlights": [
+        "Capacidad cómoda para 7-8 Pasajeros",
+        "Asientos traseros abatibles",
+        "Múltiples portavasos y espacios de almacenamiento"
+      ]
+    },
+    {
+      "id": "technology",
+      "category": "Tecnología y Conectividad",
+      "title": "Conectividad Inteligente y Control Total",
+      "subtitle": "Sistema multimedia compatible con smartphones modernos.",
+      "description": "Pantalla táctil multifuncional con soporte para Apple CarPlay® y Android Auto™, mandos de llamada y audio al volante para mantener la atención siempre en el camino.",
+      "highlights": [
+        "Compatibilidad Apple CarPlay y Android Auto",
+        "Controles al volante ergonómicos",
+        "Conexión Bluetooth y puertos USB"
+      ]
+    },
+    {
+      "id": "safety",
+      "category": "Seguridad Integral",
+      "title": "Sistemas de Seguridad Activa y Pasiva",
+      "subtitle": "Protección integral para conductor y pasajeros en todo momento.",
+      "description": "Estructura con zonas de deformación programada para absorber impactos, frenos con antibloqueo ABS, distribución electrónica de frenado EBD y control de estabilidad vehicular.",
+      "highlights": [
+        "Frenos ABS con asistente EBD",
+        "Control de Estabilidad Vehicular",
+        "Múltiples bolsas de aire SRS"
+      ]
+    }
+  ],
+  "specifications": [
+    {
+      "category": "Motor y Rendimiento",
+      "items": [
+        {
+          "label": "Propulsor",
+          "value": "3.8L V6 GDI HTRAC AWD"
+        },
+        {
+          "label": "Potencia Declarada",
+          "value": "291 HP"
+        },
+        {
+          "label": "Tipo de Combustible",
+          "value": "Gasolina"
+        },
+        {
+          "label": "Alimentación",
+          "value": "Inyección Electrónica Multipunto"
+        },
+        {
+          "label": "Capacidad de Tanque",
+          "value": "71 Litros"
+        }
+      ]
+    },
+    {
+      "category": "Transmisión y Chasis",
+      "items": [
+        {
+          "label": "Caja de Cambios",
+          "value": "Automática"
+        },
+        {
+          "label": "Tipo de Tracción",
+          "value": "Delantera o Integral AWD"
+        },
+        {
+          "label": "Suspensión Delantera",
+          "value": "Independiente tipo MacPherson"
+        },
+        {
+          "label": "Frenos",
+          "value": "Discos ventilados con asistencia electrónica"
+        },
+        {
+          "label": "Dirección",
+          "value": "Asistida eléctricamente sensible a la velocidad"
+        }
+      ]
+    },
+    {
+      "category": "Dimensiones y Capacidades",
+      "items": [
+        {
+          "label": "Carrocería",
+          "value": "SUV"
+        },
+        {
+          "label": "Capacidad de Pasajeros",
+          "value": "7-8 Pasajeros"
+        },
+        {
+          "label": "Año del Modelo",
+          "value": "2024"
+        },
+        {
+          "label": "Garantía de Fábrica",
+          "value": "3 años o 100,000 kilómetros"
+        }
+      ]
+    },
+    {
+      "category": "Seguridad y Asistencias",
+      "items": [
+        {
+          "label": "Frenado Asistido",
+          "value": "ABS + EBD + Asistencia de Frenado"
+        },
+        {
+          "label": "Control Dinámico",
+          "value": "Control de Estabilidad y Tracción"
+        },
+        {
+          "label": "Seguridad Infantil",
+          "value": "Puntos de anclaje ISOFIX"
+        },
+        {
+          "label": "Cinturones",
+          "value": "De 3 puntos retráctiles con pretensores"
+        }
+      ]
+    }
+  ],
+  "financing": {
+    "minDownPaymentPercent": 20,
+    "defaultTermMonths": 48,
+    "maxTermMonths": 72,
+    "interestRateAnnual": 8.8
+  },
+  "transmissions": [
+    {
+      "type": "Automática",
+      "label": "Automática Shiftronic de 8 velocidades con selector Shift-by-Wire",
+      "shortLabel": "Automático (8 Vel Shift-by-Wire)",
+      "priceUSD": 56900,
+      "priceNIO": 2088230,
+      "isDefault": true
+    }
+  ]
+}
