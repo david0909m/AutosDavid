@@ -82,7 +82,7 @@ La arquitectura mantiene las vistas dentro de la SPA y controla la pantalla actu
 
 ## Rendimiento
 
-Para revisar la carga de la aplicación utilicé Lighthouse. En la última medición local obtuve 77 en rendimiento, 95 en accesibilidad, 100 en buenas prácticas y 92 en SEO. La revisión ayudó a identificar que las imágenes eran el principal punto de mejora, por lo que se prepararon versiones optimizadas para el catálogo.
+Para revisar la carga de la aplicación utilicé Lighthouse. En la última medición local obtuve 76 en rendimiento, 95 en accesibilidad, 100 en buenas prácticas y 92 en SEO. La revisión ayudó a identificar que las imágenes eran el principal punto de mejora, por lo que se prepararon versiones optimizadas para el catálogo.
 
 La medición se puede repetir con este comando:
 
