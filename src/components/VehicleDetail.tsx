@@ -72,6 +72,15 @@ function getColorLayerStyle(selectedColorHex: string) {
   };
 }
 
+/** Mantiene los recursos públicos dentro de la ruta relativa usada al publicar en GitHub Pages. */
+function resolvePublicAssetPath(assetPath: string) {
+  if (/^(?:https?:)?\/\//.test(assetPath)) {
+    return assetPath;
+  }
+
+  return assetPath.replace(/^\/+/, "./");
+}
+
 /**
  * Ficha técnica oficial inspirada en el portal de concesionario Toyota Nicaragua (Casa Pellas).
  * Incluye hero de producto con eslogan y métricas, selector de colores, galería multitoma,
@@ -170,14 +179,15 @@ export function VehicleDetail({
   const coverPhoto = vehicle.image;
 
   // Foto base para el configurador de color (foto neutra de estudio si existe, o principal)
-  const colorBasePhoto = vehicle.colorPreviewImage || vehicle.image;
+  const colorBasePhoto = useMemo(
+    () => resolvePublicAssetPath(vehicle.colorPreviewImage || vehicle.image),
+    [vehicle.colorPreviewImage, vehicle.image],
+  );
 
   const selectedColorHex = colors[activeColorIndex]?.hex ?? "#ffffff";
   const normalizedMaskUrl = useMemo(() => {
     if (!vehicle.colorPreviewMask) return "";
-    return vehicle.colorPreviewMask.startsWith("./")
-      ? vehicle.colorPreviewMask.slice(1)
-      : vehicle.colorPreviewMask;
+    return resolvePublicAssetPath(vehicle.colorPreviewMask);
   }, [vehicle.colorPreviewMask]);
 
   const colorLayerStyle = getColorLayerStyle(selectedColorHex);
