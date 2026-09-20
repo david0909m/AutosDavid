@@ -12,6 +12,8 @@
   "description": "Sedán ejecutivo de lujo con marcha sumamente silenciosa, acabados de primera y alta potencia híbrida.",
   "image": "./images/vehiculos/toyota-camry-2024/toyota-camry-2024-1.jpg",
   "imageAlt": "Toyota Camry elegante gris",
+  "colorPreviewImage": "./images/vehiculos/toyota-camry-2024/toyota-camry-2024-studio.jpg",
+  "colorPreviewMask": "./images/vehiculos/toyota-camry-2024/toyota-camry-2024-mask.png",
   "gallery": [
     "./images/vehiculos/toyota-camry-2024/toyota-camry-2024-1.jpg",
     "./images/vehiculos/toyota-camry-2024/toyota-camry-2024-2.jpg",

@@ -12,6 +12,8 @@
   "description": "Diseño coupé vanguardista con postura atlética y propulsión híbrida autorrecargable de gran agilidad.",
   "image": "./images/vehiculos/toyota-chr-2024/toyota-chr-2024-1.jpg",
   "imageAlt": "Toyota C-HR bicolor en carretera",
+  "colorPreviewImage": "./images/vehiculos/toyota-chr-2024/toyota-chr-2024-studio.jpg",
+  "colorPreviewMask": "./images/vehiculos/toyota-chr-2024/toyota-chr-2024-mask.png",
   "gallery": [
     "./images/vehiculos/toyota-chr-2024/toyota-chr-2024-1.jpg",
     "./images/vehiculos/toyota-chr-2024/toyota-chr-2024-2.jpg",
