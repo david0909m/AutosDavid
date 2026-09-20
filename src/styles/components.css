@@ -327,6 +327,175 @@
   transform: translateY(-1px);
 }
 
+/* ==========================================================================
+   Not Found Page
+   ========================================================================== */
+
+.not-found-page {
+  display: grid;
+  min-height: clamp(34rem, calc(100vh - 9rem), 48rem);
+  place-items: center;
+  padding: clamp(4rem, 8vw, 7rem) 1.25rem;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(219, 234, 254, 0.7), transparent 28rem),
+    var(--color-paper-2);
+}
+
+.not-found-page__inner {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.9fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 8vw, 7rem);
+  width: min(100%, 66rem);
+}
+
+.not-found-page__visual {
+  position: relative;
+  min-height: 15rem;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  overflow: hidden;
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-xl);
+  background: #eff6ff;
+  box-shadow: var(--shadow-card);
+}
+
+.not-found-page__visual::before,
+.not-found-page__visual::after {
+  position: absolute;
+  content: "";
+  width: 16rem;
+  height: 16rem;
+  border: 1px solid rgba(147, 197, 253, 0.65);
+  border-radius: 50%;
+}
+
+.not-found-page__visual::before {
+  top: -10rem;
+  left: -5rem;
+}
+
+.not-found-page__visual::after {
+  right: -6rem;
+  bottom: -11rem;
+}
+
+.not-found-page__code {
+  position: relative;
+  z-index: 1;
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 17vw, 12rem);
+  font-weight: 800;
+  letter-spacing: -0.1em;
+  line-height: 0.8;
+}
+
+.not-found-page__route {
+  position: absolute;
+  right: 12%;
+  bottom: 16%;
+  left: 12%;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.not-found-page__route-line {
+  display: block;
+  height: 2px;
+  flex: 1;
+  background: #93c5fd;
+}
+
+.not-found-page__route-line--short {
+  flex: 0 0 18%;
+}
+
+.not-found-page__route-marker {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex: 0 0 auto;
+  border: 3px solid var(--color-accent);
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.not-found-page__content {
+  max-width: 34rem;
+}
+
+.not-found-page__label {
+  margin-bottom: 0.7rem;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.not-found-page__content h1 {
+  max-width: 12ch;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  letter-spacing: -0.055em;
+}
+
+.not-found-page__description {
+  max-width: 44ch;
+  margin-top: 1.25rem;
+  color: var(--color-ink-muted);
+  font-size: 1.05rem;
+}
+
+.not-found-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.not-found-page__button {
+  min-height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.not-found-page__button:hover {
+  transform: translateY(-1px);
+}
+
+.not-found-page__button--primary {
+  background: var(--color-accent);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.24);
+}
+
+.not-found-page__button--primary:hover {
+  background: var(--color-accent-hover);
+  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.32);
+}
+
+.not-found-page__button--secondary {
+  border-color: var(--color-rule);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.not-found-page__button--secondary:hover {
+  border-color: #93c5fd;
+  background: var(--color-accent-soft);
+}
+
 
 /* ==========================================================================
    Status & Feedback States

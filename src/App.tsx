@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { RequestForm } from "./components/RequestForm";
+import { NotFoundPage } from "./components/NotFoundPage";
 import { ShopperHub } from "./components/ShopperHub";
 import { TrustSection } from "./components/TrustSection";
 import { VehicleCard } from "./components/VehicleCard";
@@ -26,6 +27,16 @@ function normalizeSearchTerm(value: string) {
   return value.trim().replace(/\s+/g, " ").toLocaleLowerCase("es");
 }
 
+/** Identifica si la URL corresponde a la entrada pública del sitio. */
+function isKnownEntryPath() {
+  const pathSegments = window.location.pathname.split("/").filter(Boolean);
+  const siteRoot = window.location.hostname.endsWith(".github.io") && pathSegments[0]
+    ? `/${pathSegments[0]}`
+    : "";
+  const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
+  return normalizedPath === (siteRoot || "/") || normalizedPath === `${siteRoot}/index.html`;
+}
+
 /** Coordina la carga de datos y las tres vistas principales de la aplicación. */
 function App() {
   /** Hook personalizado que gestiona la carga asíncrona real y los estados del catálogo. */
@@ -36,6 +47,7 @@ function App() {
   const [priceOrder, setPriceOrder] = useState<PriceOrder>("default");
   /** Define cuál vista se muestra sin perder los filtros de la sesión. */
   const [view, setView] = useState<View>("catalog");
+  const [isNotFound, setIsNotFound] = useState(() => !isKnownEntryPath());
   /** El ID recupera el vehículo desde la fuente única `vehicles`. */
   const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(null);
   const [selectedRequestType, setSelectedRequestType] = useState<RequestType>("quotation");
@@ -91,6 +103,7 @@ function App() {
   /** Abre la ficha y permite llevar al usuario a una sección concreta cuando corresponde. */
   function openVehicleDetail(vehicleId: string, section?: DetailSectionId) {
     hasNavigated.current = true;
+    setIsNotFound(false);
     setSelectedVehicleId(vehicleId);
     setSelectedFinancing(undefined);
     setPendingDetailSection(section ?? null);
@@ -99,6 +112,7 @@ function App() {
   }
   /** Vuelve al catálogo conservando los filtros aplicados. */
   function returnToCatalog() {
+    setIsNotFound(false);
     setSelectedFinancing(undefined);
     setPendingDetailSection(null);
     setView("catalog");
@@ -117,6 +131,7 @@ function App() {
 
   /** Desplaza a una sección del catálogo, incluso cuando el usuario viene de otra vista. */
   function navigateToCatalogSection(sectionId: string) {
+    setIsNotFound(false);
     setIsMobileMenuOpen(false);
     if (view !== "catalog") {
       setPendingCatalogSection(sectionId);
@@ -183,6 +198,15 @@ function App() {
   // Este selector mantiene el detalle y el formulario dentro de la SPA sin introducir rutas
   // mientras no sea necesario compartir una URL por vehículo.
   const mainContent = (() => {
+    if (isNotFound) {
+      return (
+        <NotFoundPage
+          onGoHome={returnToCatalog}
+          onViewInventory={() => navigateToCatalogSection("catalog-title")}
+        />
+      );
+    }
+
     if (selectedVehicle && view === "detail") {
       return (
         <VehicleDetail

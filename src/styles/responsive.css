@@ -476,3 +476,44 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media (max-width: 48rem) {
+  .not-found-page {
+    min-height: clamp(36rem, calc(100vh - 6rem), 44rem);
+    padding-block: 3.5rem 4.5rem;
+  }
+
+  .not-found-page__inner {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .not-found-page__visual {
+    min-height: 12rem;
+  }
+
+  .not-found-page__content {
+    max-width: 40rem;
+    text-align: center;
+  }
+
+  .not-found-page__content h1,
+  .not-found-page__description {
+    margin-inline: auto;
+  }
+
+  .not-found-page__actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 30rem) {
+  .not-found-page {
+    padding-inline: 1rem;
+  }
+
+  .not-found-page__actions,
+  .not-found-page__button {
+    width: 100%;
+  }
+}
