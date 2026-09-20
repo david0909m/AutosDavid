@@ -10,14 +10,16 @@
   "transmission": "Automática",
   "fuel": "Híbrido",
   "description": "El sedán más vendido del mundo con sistema híbrido de quinta generación, gran eficiencia y confort superior.",
-  "image": "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-optimized.jpg",
+  "image": "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-4.jpg",
   "imageAlt": "Toyota Corolla plateado vista dinámica",
+  "colorPreviewImage": "/images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-studio.jpg",
+  "colorPreviewMask": "/images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-mask.png",
   "gallery": [
     "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-optimized.jpg",
     "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-2.jpg",
     "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-3.jpg",
     "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-4.jpg",
-    "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-5.jpg"
+    "./images/vehiculos/toyota-corolla-2024/toyota-corolla-2024-5.avif"
   ],
   "slogan": "El sedán más vendido del mundo con quinta generación híbrida",
   "metrics": [

@@ -14,11 +14,14 @@
   "imageAlt": "Toyota Hilux doble cabina en acción",
   "gallery": [
     "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-optimized.jpg",
+    "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-studio.jpg",
     "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-2.jpg",
     "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-3.jpg",
     "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-4.jpg",
     "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-5.jpg"
   ],
+  "colorPreviewImage": "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-studio.jpg",
+  "colorPreviewMask": "./images/vehiculos/toyota-hilux-2024/toyota-hilux-2024-mask.png",
   "slogan": "La leyenda indestructible que domina cualquier terreno",
   "metrics": [
     {
@@ -61,11 +64,11 @@
     },
     {
       "name": "Rojo Carmín",
-      "hex": "#871b1b"
+      "hex": "#850303"
     },
     {
       "name": "Bronce Metalizado",
-      "hex": "#5f5548"
+      "hex": "#B37E30"
     }
   ],
   "features": [

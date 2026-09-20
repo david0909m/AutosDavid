@@ -12,6 +12,8 @@
   "description": "El rey indiscutible del todoterreno con chasis GA-F, tracción 4x4 permanente y tecnología off-road sin rival.",
   "image": "./images/vehiculos/toyota-landcruiser-2024/toyota-landcruiser-2024-1.jpg",
   "imageAlt": "Toyota Land Cruiser 250 todoterreno",
+  "colorPreviewImage": "/images/vehiculos/toyota-landcruiser-2024/toyota-landcruiser-2024-studio.jpg",
+  "colorPreviewMask": "/images/vehiculos/toyota-landcruiser-2024/toyota-landcruiser-2024-mask.png",
   "gallery": [
     "./images/vehiculos/toyota-landcruiser-2024/toyota-landcruiser-2024-1.jpg",
     "./images/vehiculos/toyota-landcruiser-2024/toyota-landcruiser-2024-2.jpg",

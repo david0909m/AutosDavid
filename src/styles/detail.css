@@ -73,11 +73,98 @@
   font-weight: 600;
 }
 
+/* 1. Hero Panorámico de Portada (Foto oficial con difuminado perimetral y mayor amplitud) */
+.dealer-cover-hero {
+  position: relative;
+  width: 100%;
+  background: #090d16;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dealer-cover-hero__media {
+  position: relative;
+  width: 100%;
+  height: clamp(400px, 56vh, 650px);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #090d16;
+}
+
+/* Imagen principal con tamaño óptimo y difuminado perimetral */
+.dealer-cover-hero__img {
+  width: 100%;
+  max-width: min(100%, 88rem);
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Difuminado perimetral con centro amplio para máxima claridad de la fotografía */
+.dealer-cover-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    /* Difuminado perimetral ligero */
+    radial-gradient(
+      ellipse 88% 80% at 50% 46%,
+      transparent 54%,
+      rgba(9, 13, 22, 0.42) 78%,
+      rgba(9, 13, 22, 0.94) 100%
+    ),
+    /* Degradado inferior para lectura nítida de títulos */
+    linear-gradient(
+      to top,
+      rgba(9, 13, 22, 0.96) 0%,
+      rgba(9, 13, 22, 0.45) 36%,
+      transparent 65%
+    );
+  display: flex;
+  align-items: flex-end;
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+}
+
+.dealer-cover-hero__content {
+  pointer-events: auto;
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.dealer-cover-hero__title {
+  color: #ffffff;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin: 0;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.dealer-cover-hero__slogan {
+  color: #e2e8f0;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  max-width: 48ch;
+  margin: 0;
+  line-height: 1.45;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
 /* 2. Hero Section */
 .dealer-hero {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
-  padding-block: clamp(2rem, 4vw, 3.5rem);
+  padding-block: clamp(2.25rem, 4.5vw, 4rem);
 }
 
 .dealer-hero__container {
@@ -89,11 +176,61 @@
   align-items: start;
 }
 
-/* Hero Visual: Galería y Selector de Colores */
+/* Hero Visual: Selector de Color Exclusivo */
 .dealer-hero__visual {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+}
+
+/* Escenario de Color Exclusivo (Configurador) */
+.dealer-color-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #f8fafc;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  transition: box-shadow 0.3s var(--ease-out);
+}
+
+.dealer-color-stage--color-ambience {
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 1.2rem 2.8rem color-mix(in srgb, var(--vehicle-ambient-color) 28%, transparent);
+}
+
+.dealer-color-stage__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.dealer-color-stage__color-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: center;
+  mask-position: center;
+  transition: background-color 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
+  will-change: background-color, opacity;
 }
 
 .dealer-gallery__stage {
@@ -129,8 +266,8 @@
   pointer-events: auto;
   user-select: none;
   -webkit-user-drag: none;
-  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
 }
 
 .dealer-gallery__image.is-active {
@@ -139,7 +276,51 @@
 }
 
 .dealer-gallery__image:hover {
-  transform: scale(1.02);
+  /* Mantener fijo sin saltos de escala para no romper máscaras */
+}
+
+/* Capa de Color de Carrocería Dinámica (Prueba Piloto) */
+.dealer-gallery__color-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: center;
+  mask-position: center;
+  transition: background-color 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
+  will-change: background-color, opacity;
+}
+
+.dealer-gallery__badges {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.dealer-gallery__badges .dealer-badge {
+  position: static;
+}
+
+.dealer-badge--color-mode {
+  background: rgba(14, 165, 233, 0.92);
+  border-color: rgba(56, 189, 248, 0.45);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.32);
+  letter-spacing: 0.04em;
 }
 
 .dealer-badge {
@@ -275,11 +456,14 @@
 
 .dealer-gallery__thumbs {
   display: flex;
+  justify-content: center;
+  justify-content: safe center;
+  align-items: center;
   gap: 0.75rem;
   overflow-x: auto;
   padding: 6px 4px 8px;
-  margin-top: -4px;
-  margin-inline: -4px;
+  margin-top: 1.25rem;
+  margin-inline: auto;
   user-select: none;
   -webkit-user-select: none;
   scrollbar-width: thin;
@@ -702,6 +886,11 @@
   border-color: #93c5fd;
   background: var(--color-surface-hover);
   transform: translateY(-1px);
+}
+
+.dealer-transmission-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .dealer-transmission-btn.is-active {
@@ -1555,30 +1744,46 @@
   background-color: #fafbfc;
 }
 
-.dealer-specs-actions {
-  margin-top: 2.5rem;
-  text-align: center;
+/* Sección de Galería Fotográfica en Ficha Técnica */
+.dealer-specs-gallery {
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #e2e8f0;
 }
 
-.dealer-print-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #ffffff;
+.dealer-specs-gallery__header {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.dealer-specs-gallery__title {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800;
   color: #0f172a;
-  font-size: 0.95rem;
-  font-weight: 700;
-  border: 1px solid #cbd5e1;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  letter-spacing: -0.02em;
+  margin: 0.25rem 0 0.5rem 0;
 }
 
-.dealer-print-btn:hover {
-  background: #f1f5f9;
-  border-color: #0f172a;
+.dealer-specs-gallery__desc {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
 }
+
+.dealer-specs-gallery .dealer-gallery__stage {
+  max-width: 58rem;
+  margin-inline: auto;
+}
+
+.dealer-specs-gallery .dealer-gallery__thumbs {
+  max-width: 58rem;
+  margin-inline: auto;
+  margin-top: 1.25rem;
+  justify-content: center;
+  justify-content: safe center;
+}
+
 
 /* 7. Banner de Contacto Directo */
 .dealer-contact-banner {
@@ -1745,28 +1950,6 @@
   background: var(--color-accent-hover);
 }
 
-/* Ocultar barra flotante y botones no imprimibles en modo impresión */
-@media print {
-  .dealer-top-nav,
-  .dealer-tabs-bar,
-  .dealer-sticky-bar,
-  .dealer-hero__cta-group,
-  .dealer-summary-cta,
-  .dealer-specs-actions,
-  .dealer-contact-banner {
-    display: none !important;
-  }
-  .dealer-detail-page {
-    background: #ffffff !important;
-    padding-bottom: 0 !important;
-  }
-  .dealer-story-card,
-  .dealer-spec-group {
-    break-inside: avoid;
-    box-shadow: none !important;
-    border: 1px solid #ddd !important;
-  }
-}
 
 
 /* ==========================================================================
@@ -2855,16 +3038,16 @@
   color: #0f172a;
 }
 
-/* Print Styles for Official Voucher */
+/* Print Styles for Official Voucher (solo aplica cuando se imprime la proforma de cotización) */
 @media print {
-  body * {
+  body:has(.submission-proforma-slip) * {
     visibility: hidden;
   }
-  .submission-proforma-slip,
-  .submission-proforma-slip * {
-    visibility: visible;
+  body:has(.submission-proforma-slip) .submission-proforma-slip,
+  body:has(.submission-proforma-slip) .submission-proforma-slip * {
+    visibility: visible !important;
   }
-  .submission-proforma-slip {
+  body:has(.submission-proforma-slip) .submission-proforma-slip {
     position: absolute;
     left: 0;
     top: 0;

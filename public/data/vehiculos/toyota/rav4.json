@@ -12,6 +12,8 @@
   "description": "SUV líder en seguridad y tracción integral eléctrica con generoso espacio y tecnología para toda la familia.",
   "image": "./images/vehiculos/toyota-rav4-2024/toyota-rav4-2024-optimized.jpg",
   "imageAlt": "Toyota RAV4 negro exterior",
+  "colorPreviewImage": "/images/vehiculos/toyota-rav4-2024/toyota-rav4-2024-studio.jpg",
+  "colorPreviewMask": "/images/vehiculos/toyota-rav4-2024/toyota-rav4-2024-mask.png",
   "gallery": [
     "./images/vehiculos/toyota-rav4-2024/toyota-rav4-2024-optimized.jpg",
     "./images/vehiculos/toyota-rav4-2024/toyota-rav4-2024-2.jpg",
@@ -54,10 +56,10 @@
     {
       "name": "Gris Grafito",
       "hex": "#40454d"
-    },
+    }, 
     {
-      "name": "Negro Profundo",
-      "hex": "#121212"
+      "name": "Verde Bosque",
+      "hex": "#104D0A"
     },
     {
       "name": "Rojo Pasión",

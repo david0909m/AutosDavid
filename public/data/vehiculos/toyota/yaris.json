@@ -12,6 +12,8 @@
   "description": "Hatchback urbano ágil de alta eficiencia con tecnología híbrida autorrecargable y gran equipamiento de seguridad.",
   "image": "./images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-optimized.jpg",
   "imageAlt": "Toyota Yaris azul vista dinámica",
+  "colorPreviewImage": "/images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-studio.jpg",
+  "colorPreviewMask": "/images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-mask.png",
   "gallery": [
     "./images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-optimized.jpg",
     "./images/vehiculos/toyota-yaris-2024/toyota-yaris-2024-2.jpg",

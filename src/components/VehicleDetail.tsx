@@ -41,6 +41,36 @@ const PHOTO_PERSPECTIVES = [
   "Dinámica y Desempeño",
 ];
 
+/** Calcula el estilo visual del modo de mezcla y opacidad para el tintado de carrocería. */
+function getColorLayerStyle(selectedColorHex: string) {
+  const cleanHex = selectedColorHex.replace("#", "");
+  if (cleanHex.length !== 6) {
+    return {
+      backgroundColor: selectedColorHex,
+      mixBlendMode: "color" as const,
+      opacity: 1,
+    };
+  }
+  const r = parseInt(cleanHex.slice(0, 2), 16);
+  const g = parseInt(cleanHex.slice(2, 4), 16);
+  const b = parseInt(cleanHex.slice(4, 6), 16);
+  const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  const isPureWhite = lum > 0.95;
+
+  if (isPureWhite) {
+    return {
+      backgroundColor: "#ffffff",
+      mixBlendMode: "color" as const,
+      opacity: 0.96,
+    };
+  }
+
+  return {
+    backgroundColor: selectedColorHex,
+    mixBlendMode: "multiply" as const,
+    opacity: 0.94,
+  };
+}
 
 /**
  * Ficha técnica oficial inspirada en el portal de concesionario Toyota Nicaragua (Casa Pellas).
@@ -135,6 +165,22 @@ export function VehicleDetail({
         : [vehicle.image],
     [vehicle.gallery, vehicle.image],
   );
+
+  // Foto de Portada Panorámica
+  const coverPhoto = vehicle.image;
+
+  // Foto base para el configurador de color (foto neutra de estudio si existe, o principal)
+  const colorBasePhoto = vehicle.colorPreviewImage || vehicle.image;
+
+  const selectedColorHex = colors[activeColorIndex]?.hex ?? "#ffffff";
+  const normalizedMaskUrl = useMemo(() => {
+    if (!vehicle.colorPreviewMask) return "";
+    return vehicle.colorPreviewMask.startsWith("./")
+      ? vehicle.colorPreviewMask.slice(1)
+      : vehicle.colorPreviewMask;
+  }, [vehicle.colorPreviewMask]);
+
+  const colorLayerStyle = getColorLayerStyle(selectedColorHex);
 
   // Animación de entrada fluida al hacer scroll para todas las secciones
   useScrollReveal(vehicle.id);
@@ -242,219 +288,58 @@ export function VehicleDetail({
         </div>
       </div>
 
-      {/* 2. Hero de Presentación Oficial estilo Toyota Nicaragua */}
-      <section className="dealer-hero" id="resumen" aria-label="Resumen del vehículo">
-        <div className="dealer-hero__container">
-          {/* Columna Izquierda: Galería Multitoma y Selector de Colores */}
-          <div className="dealer-hero__visual">
-            <div
-              className="dealer-gallery__stage dealer-gallery__stage--color-ambience"
-              style={galleryColorStyle}
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
-              {photos.map((photoUrl, index) => (
-                <img
-                  key={photoUrl}
-                  className={`dealer-gallery__image ${
-                    activePhotoIndex === index ? "is-active" : ""
-                  }`}
-                  src={photoUrl}
-                  alt={`${vehicle.brand} ${vehicle.model} - ${PHOTO_PERSPECTIVES[index] || `Toma ${index + 1}`}`}
-                  aria-hidden={activePhotoIndex !== index}
-                  referrerPolicy="no-referrer"
-                  decoding="async"
-                  draggable={false}
-                  loading={index === 0 ? "eager" : "lazy"}
-                  onClick={() => setIsLightboxOpen(true)}
-                  title="Haz clic para ver en pantalla completa (Zoom)"
-                />
-              ))}
-              <span className="dealer-badge">{vehicle.category}</span>
-
-              {/* Botón superior de ampliación a pantalla completa */}
-              <div className="dealer-gallery__top-actions">
-                <button
-                  type="button"
-                  className="dealer-gallery__expand-btn"
-                  onClick={() => setIsLightboxOpen(true)}
-                  aria-label="Ver fotografía en pantalla completa"
-                  title="Ampliar fotografía"
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <polyline points="15 3 21 3 21 9" />
-                    <polyline points="9 21 3 21 3 15" />
-                    <line x1="21" y1="3" x2="14" y2="10" />
-                    <line x1="3" y1="21" x2="10" y2="14" />
-                  </svg>
-                  <span>Ampliar</span>
-                </button>
-              </div>
-
-              {/* Flechas de navegación rápida */}
-              {photos.length > 1 && (
-                <>
-                  <button
-                    type="button"
-                    className="dealer-gallery__arrow dealer-gallery__arrow--prev"
-                    onClick={prevPhoto}
-                    aria-label="Fotografía anterior"
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <polyline points="15 18 9 12 15 6" />
-                    </svg>
-                  </button>
-                  <button
-                    type="button"
-                    className="dealer-gallery__arrow dealer-gallery__arrow--next"
-                    onClick={nextPhoto}
-                    aria-label="Siguiente fotografía"
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                </>
+      {/* 1. Hero Panorámico de Portada (Foto normal grande en alta resolución) */}
+      <section
+        className="dealer-cover-hero reveal-on-scroll"
+        aria-label={`Portada oficial del ${vehicle.brand} ${vehicle.model}`}
+      >
+        <div className="dealer-cover-hero__media">
+          {/* Imagen principal del vehículo con difuminado perimetral ligero */}
+          <img
+            src={coverPhoto}
+            alt={`${vehicle.brand} ${vehicle.model} vista panorámica oficial`}
+            className="dealer-cover-hero__img"
+            loading="eager"
+            referrerPolicy="no-referrer"
+          />
+          <div className="dealer-cover-hero__overlay">
+            <div className="dealer-cover-hero__content">
+              <h1 ref={headingRef} tabIndex={-1} className="dealer-cover-hero__title">
+                {vehicle.brand} {vehicle.model}
+              </h1>
+              {vehicle.slogan && (
+                <p className="dealer-cover-hero__slogan">{vehicle.slogan}</p>
               )}
-
-              {/* Barra inferior de metadatos y perspectiva */}
-              <div className="dealer-gallery__meta-bar">
-                <span className="dealer-gallery__perspective">
-                  {PHOTO_PERSPECTIVES[activePhotoIndex] || `Ángulo ${activePhotoIndex + 1}`}
-                </span>
-                <span className="dealer-gallery__counter" aria-live="polite">
-                  {activePhotoIndex + 1} / {photos.length}
-                </span>
-              </div>
-            </div>
-
-            {/* Miniaturas interactivas */}
-            {photos.length > 1 && (
-              <div className="dealer-gallery__thumbs" aria-label="Miniaturas de la galería">
-                {photos.map((photoUrl, index) => (
-                  <button
-                    key={photoUrl}
-                    type="button"
-                    aria-pressed={activePhotoIndex === index}
-                    className={`dealer-thumb ${activePhotoIndex === index ? "is-active" : ""}`}
-                    onClick={() => {
-                      if (activePhotoIndex !== index) {
-                        setActivePhotoIndex(index);
-                      }
-                    }}
-                    aria-label={`Ver ángulo ${index + 1} de ${vehicle.brand} ${vehicle.model}`}
-                  >
-                    <img
-                      src={photoUrl}
-                      alt=""
-                      aria-hidden="true"
-                      referrerPolicy="no-referrer"
-                      loading="lazy"
-                      decoding="async"
-                      draggable={false}
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {/* Selector de Colores de Carrocería */}
-            <div className="dealer-color-picker" aria-labelledby="color-picker-title">
-              <div className="dealer-color-picker__header">
-                <span id="color-picker-title" className="color-label">
-                  Color exterior:
-                </span>
-                <span className="color-name-wrap">
-                  <span
-                    className="color-chip-preview"
-                    style={{ backgroundColor: colors[activeColorIndex]?.hex }}
-                    aria-hidden="true"
-                  />
-                  <strong className="color-name">{colors[activeColorIndex]?.name}</strong>
-                </span>
-              </div>
-              <div className="dealer-color-picker__swatches" role="radiogroup" aria-label="Colores disponibles">
-                {colors.map((c, idx) => (
-                  <button
-                    key={c.name}
-                    type="button"
-                    role="radio"
-                    aria-checked={activeColorIndex === idx}
-                    className={`dealer-color-swatch ${activeColorIndex === idx ? "is-active" : ""}`}
-                    style={{ backgroundColor: c.hex }}
-                    onClick={() => setActiveColorIndex(idx)}
-                    title={c.name}
-                    aria-label={`Seleccionar color ${c.name}`}
-                  />
-                ))}
-              </div>
-              <p className="dealer-color-disclaimer">
-                *Color de carrocería seleccionado para cotización y reserva. Disponibilidad sujeta a inventario en Nicaragua.
-              </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Columna Derecha: Datos de Campaña, Precios Oficiales y Acciones */}
+      {/* 2. Sección de Presentación Oficial: Color de Carrocería & Precios */}
+      <section className="dealer-hero" id="resumen" aria-label="Resumen y configurador de color del vehículo">
+        <div className="dealer-hero__container">
+          {/* Columna Izquierda: Datos de Campaña, Precios Oficiales y Acciones */}
           <div className="dealer-hero__info reveal-on-scroll">
-            <span className="dealer-brand-tag">{vehicle.brand}</span>
-            <h1 ref={headingRef} tabIndex={-1} className="dealer-title">
-              {vehicle.brand} {vehicle.model}
-            </h1>
-
-            {vehicle.slogan && <p className="dealer-slogan">{vehicle.slogan}</p>}
-
             <p className="dealer-description">{vehicle.description}</p>
 
             {/* Selector de Versión de Transmisión (Mecánico vs Automático) */}
             <div className="dealer-transmission-picker" aria-labelledby="trans-picker-label">
               <div className="dealer-transmission-picker__header">
                 <span id="trans-picker-label" className="transmission-label">
-                  Transmisión disponible:
+                  Versión / Transmisión:
                 </span>
-                <strong className="transmission-current-label">
-                  {activeTransmission.label}
-                </strong>
+                <strong className="transmission-current-label">{activeTransmission.label}</strong>
               </div>
 
               {transmissions.length > 1 ? (
                 <div
                   className="dealer-transmission-toggle"
                   role="radiogroup"
-                  aria-label="Seleccionar versión de transmisión"
+                  aria-labelledby="trans-picker-label"
                 >
                   {transmissions.map((t, idx) => (
                     <button
-                      key={t.type + idx}
+                      key={t.type}
                       type="button"
                       role="radio"
                       aria-checked={selectedTransmissionIndex === idx}
@@ -465,7 +350,7 @@ export function VehicleDetail({
                     >
                       <span className="trans-btn-name">{t.shortLabel}</span>
                       <span className="trans-btn-price">
-                        {priceFormatterNIO.format(t.priceNIO)}
+                        {priceFormatterUSD.format(t.priceUSD)}
                       </span>
                     </button>
                   ))}
@@ -478,7 +363,7 @@ export function VehicleDetail({
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="2.2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     aria-hidden="true"
@@ -546,6 +431,78 @@ export function VehicleDetail({
                 })}
               </div>
             )}
+          </div>
+
+          {/* Columna Derecha: Solo la foto del color + Selector de colores debajo */}
+          <div className="dealer-hero__visual">
+            <div
+              className="dealer-color-stage dealer-color-stage--color-ambience"
+              style={galleryColorStyle}
+            >
+              <img
+                className="dealer-color-stage__img"
+                src={colorBasePhoto}
+                alt={`${vehicle.brand} ${vehicle.model} en color ${colors[activeColorIndex]?.name}`}
+                referrerPolicy="no-referrer"
+                decoding="async"
+                draggable={false}
+                loading="eager"
+              />
+
+              {/* Capa de Color de Carrocería Dinámica (Toyota Hilux) */}
+              {vehicle.colorPreviewMask && (
+                <div
+                  className="dealer-color-stage__color-layer"
+                  style={{
+                    backgroundColor: colorLayerStyle.backgroundColor,
+                    mixBlendMode: colorLayerStyle.mixBlendMode,
+                    opacity: colorLayerStyle.opacity,
+                    WebkitMaskImage: `url("${normalizedMaskUrl}")`,
+                    maskImage: `url("${normalizedMaskUrl}")`,
+                  }}
+                  aria-hidden="true"
+                />
+              )}
+
+              <div className="dealer-gallery__badges">
+                <span className="dealer-badge">{vehicle.category}</span>
+              </div>
+            </div>
+
+            {/* Selector de Colores de Carrocería DEBAJO de la foto */}
+            <div className="dealer-color-picker" aria-labelledby="color-picker-title">
+              <div className="dealer-color-picker__header">
+                <span id="color-picker-title" className="color-label">
+                  Color exterior:
+                </span>
+                <span className="color-name-wrap">
+                  <span
+                    className="color-chip-preview"
+                    style={{ backgroundColor: colors[activeColorIndex]?.hex }}
+                    aria-hidden="true"
+                  />
+                  <strong className="color-name">{colors[activeColorIndex]?.name}</strong>
+                </span>
+              </div>
+              <div className="dealer-color-picker__swatches" role="radiogroup" aria-label="Colores disponibles">
+                {colors.map((c, idx) => (
+                  <button
+                    key={c.name}
+                    type="button"
+                    role="radio"
+                    aria-checked={activeColorIndex === idx}
+                    className={`dealer-color-swatch ${activeColorIndex === idx ? "is-active" : ""}`}
+                    style={{ backgroundColor: c.hex }}
+                    onClick={() => setActiveColorIndex(idx)}
+                    title={c.name}
+                    aria-label={`Seleccionar color ${c.name}`}
+                  />
+                ))}
+              </div>
+              <p className="dealer-color-disclaimer">
+                *Color de carrocería seleccionado para cotización y reserva. Disponibilidad sujeta a inventario en Nicaragua.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -920,15 +877,157 @@ export function VehicleDetail({
           ))}
         </div>
 
-        <div className="dealer-specs-actions">
-          <button
-            type="button"
-            className="dealer-print-btn"
-            onClick={() => window.print()}
+        {/* 6.1 Galería Fotográfica Multitoma en Ficha Técnica */}
+        <div className="dealer-specs-gallery reveal-on-scroll" id="galeria" aria-label="Galería oficial del vehículo">
+          <div className="dealer-specs-gallery__header">
+            <h3 className="dealer-specs-gallery__title">Galería de imágenes</h3>
+            
+          </div>
+
+          <div
+            className="dealer-gallery__stage dealer-gallery__stage--color-ambience"
+            style={galleryColorStyle}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
-            Imprimir o guardar ficha técnica (PDF)
-          </button>
+            {photos.map((photoUrl, index) => (
+              <img
+                key={photoUrl}
+                className={`dealer-gallery__image ${
+                  activePhotoIndex === index ? "is-active" : ""
+                }`}
+                src={photoUrl}
+                alt={`${vehicle.brand} ${vehicle.model} - ${PHOTO_PERSPECTIVES[index] || `Toma ${index + 1}`}`}
+                aria-hidden={activePhotoIndex !== index}
+                referrerPolicy="no-referrer"
+                decoding="async"
+                draggable={false}
+                loading={index === 0 ? "eager" : "lazy"}
+                onClick={() => setIsLightboxOpen(true)}
+                title="Haz clic para ver en pantalla completa (Zoom)"
+              />
+            ))}
+
+            <span className="dealer-badge">{vehicle.category}</span>
+
+            {/* Botón superior de ampliación a pantalla completa */}
+            <div className="dealer-gallery__top-actions">
+              <button
+                type="button"
+                className="dealer-gallery__expand-btn"
+                onClick={() => setIsLightboxOpen(true)}
+                aria-label="Ver fotografía en pantalla completa"
+                title="Ampliar fotografía"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="15 3 21 3 21 9" />
+                  <polyline points="9 21 3 21 3 15" />
+                  <line x1="21" y1="3" x2="14" y2="10" />
+                  <line x1="3" y1="21" x2="10" y2="14" />
+                </svg>
+                <span>Ampliar</span>
+              </button>
+            </div>
+
+            {/* Flechas de navegación rápida */}
+            {photos.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  className="dealer-gallery__arrow dealer-gallery__arrow--prev"
+                  onClick={prevPhoto}
+                  aria-label="Fotografía anterior"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  className="dealer-gallery__arrow dealer-gallery__arrow--next"
+                  onClick={nextPhoto}
+                  aria-label="Siguiente fotografía"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+              </>
+            )}
+
+            {/* Barra inferior de metadatos y perspectiva */}
+            <div className="dealer-gallery__meta-bar">
+              <span className="dealer-gallery__perspective">
+                {PHOTO_PERSPECTIVES[activePhotoIndex] || `Ángulo ${activePhotoIndex + 1}`}
+              </span>
+              <span className="dealer-gallery__counter" aria-live="polite">
+                {activePhotoIndex + 1} / {photos.length}
+              </span>
+            </div>
+          </div>
+
+          {/* Miniaturas interactivas */}
+          {photos.length > 1 && (
+            <div className="dealer-gallery__thumbs" aria-label="Miniaturas de la galería">
+              {photos.map((photoUrl, index) => (
+                <button
+                  key={photoUrl}
+                  type="button"
+                  aria-pressed={activePhotoIndex === index}
+                  className={`dealer-thumb ${activePhotoIndex === index ? "is-active" : ""}`}
+                  onClick={() => {
+                    if (activePhotoIndex !== index) {
+                      setActivePhotoIndex(index);
+                    }
+                  }}
+                  aria-label={`Ver ángulo ${index + 1} de ${vehicle.brand} ${vehicle.model}`}
+                >
+                  <img
+                    src={photoUrl}
+                    alt=""
+                    aria-hidden="true"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
+                  />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
+
+
       </section>
 
       {/* 7. Banner de Contacto Directo / Agendar Prueba de Manejo */}

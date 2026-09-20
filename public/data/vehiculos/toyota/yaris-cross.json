@@ -12,6 +12,8 @@
   "description": "Crossover urbano con mayor despeje al suelo, posición de manejo alta y la eficiencia híbrida de Toyota.",
   "image": "./images/vehiculos/toyota-yaris-cross-2024/toyota-yaris-cross-2024-1.jpg",
   "imageAlt": "Toyota Yaris Cross dorado vista frontal",
+  "colorPreviewImage": "/images/vehiculos/toyota-yaris-cross-2024/toyota-yaris-cross-2024-studio.jpg",
+  "colorPreviewMask": "/images/vehiculos/toyota-yaris-cross-2024/toyota-yaris-cross-2024-mask.png",
   "gallery": [
     "./images/vehiculos/toyota-yaris-cross-2024/toyota-yaris-cross-2024-1.jpg",
     "./images/vehiculos/toyota-yaris-cross-2024/toyota-yaris-cross-2024-2.jpg",

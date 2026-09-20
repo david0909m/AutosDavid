@@ -75,6 +75,10 @@ export interface Vehicle {
   transmissions?: VehicleTransmissionOption[];
   /** Paleta de colores de carrocería oficiales con código hex. */
   colors?: VehicleColor[];
+  /** Imagen base neutra para previsualización dinámica de colores con CSS. */
+  colorPreviewImage?: string;
+  /** Máscara alfa de carrocería para recortar el color sobre la chapa del vehículo. */
+  colorPreviewMask?: string;
   /** Módulos editoriales de producto estilo concesionario oficial. */
   features?: VehicleFeatureStory[];
   /** Matriz técnica exhaustiva organizada por categorías. */
